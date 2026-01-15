@@ -5,32 +5,58 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: Inter, sans-serif;
   background: #050505;
-  color: #ffffff;
+  color: white;
   overflow-x: hidden;
 }
 
-/* Custom Cursor */
+/* GRAIN */
+.grain {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* CURSOR */
 .cursor {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border: 2px solid #5eead4;
   border-radius: 50%;
   position: fixed;
-  pointer-events: none;
   transform: translate(-50%, -50%);
-  z-index: 999;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* INTRO */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.intro h1 {
+  font-size: 72px;
+  letter-spacing: 6px;
 }
 
 /* NAV */
 nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 30px 60px;
   display: flex;
   justify-content: space-between;
-  padding: 30px 60px;
-  position: fixed;
-  width: 100%;
-  z-index: 10;
+  z-index: 20;
 }
 
 .logo {
@@ -38,108 +64,89 @@ nav {
   letter-spacing: 3px;
 }
 
-.nav-links a {
-  margin-left: 30px;
-  color: white;
-  text-decoration: none;
-  font-weight: 300;
-}
-
-.nav-cta {
-  border: 1px solid #5eead4;
-  padding: 8px 18px;
-  border-radius: 30px;
-}
-
 /* HERO */
 .hero {
   height: 100vh;
-  background: radial-gradient(circle at center, #0f172a, #050505 60%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
 }
 
+canvas {
+  position: absolute;
+  inset: 0;
+}
+
 .hero-text {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 90px;
+  font-size: 88px;
   line-height: 1;
-  font-weight: 900;
 }
 
 .hero span {
   color: #5eead4;
-  position: relative;
 }
 
-.hero p {
-  margin-top: 20px;
-  opacity: 0.7;
+/* HORIZONTAL */
+.horizontal {
+  height: 100vh;
+  overflow: hidden;
 }
 
-.scroll {
-  position: absolute;
-  bottom: 40px;
-  opacity: 0.6;
+.track {
+  display: flex;
+  height: 100%;
 }
 
-/* STATEMENT */
-.statement {
-  padding: 180px 60px;
-  text-align: center;
-}
-
-.statement h2 {
-  font-size: 56px;
+.panel {
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
   font-weight: 800;
 }
 
-.statement span {
-  color: #5eead4;
+/* CASES */
+.cases {
+  padding: 160px 60px;
 }
 
-/* OFFER */
-.offer {
-  padding: 160px 80px;
-}
-
-.offer-grid {
+.case-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-  gap: 80px;
+  gap: 40px;
+  margin-top: 60px;
 }
 
-.offer-item span {
-  font-size: 14px;
-  opacity: 0.5;
+.case {
+  height: 300px;
+  background: #111;
+  position: relative;
+  overflow: hidden;
 }
 
-.offer-item h3 {
-  margin: 15px 0;
-  font-size: 28px;
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: .4s;
 }
 
-.offer-item p {
-  opacity: 0.7;
-}
-
-/* PHILOSOPHY */
-.philosophy {
-  padding: 200px 60px;
-  text-align: center;
-  background: linear-gradient(180deg, #050505, #020617);
-}
-
-.philosophy h2 {
-  font-size: 60px;
-}
-
-.philosophy span {
-  color: #5eead4;
+.case:hover .overlay {
+  opacity: 1;
 }
 
 /* CONTACT */
@@ -150,10 +157,10 @@ nav {
 
 form {
   max-width: 420px;
-  margin: 40px auto 0;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 input, textarea {
@@ -165,9 +172,8 @@ input, textarea {
 
 button {
   background: #5eead4;
-  border: none;
   padding: 16px;
-  font-weight: 600;
+  border: none;
   cursor: pointer;
 }
 
@@ -175,5 +181,5 @@ button {
 footer {
   padding: 40px;
   text-align: center;
-  opacity: 0.4;
+  opacity: .4;
 }
