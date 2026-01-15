@@ -1,64 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>apweb.tech</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APWeb.tech | Web Design, Hosting & Maintenance</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
+<body>
 
-<body style="
-  margin:0;
-  font-family: Arial, sans-serif;
-  background-color:#020617;
-  color:#e5e7eb;
-  text-align:center;
-">
+<header class="hero">
+  <nav>
+    <div class="logo">
+      <span>AP</span><span>WEB</span>
+    </div>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact" class="cta">Get Started</a></li>
+    </ul>
+  </nav>
 
-  <div style="
-    padding:24px;
-    font-size:24px;
-    font-weight:bold;
-    color:#38bdf8;
-  ">
-    apweb.tech
+  <div class="hero-content">
+    <h1>Websites That <span>Convert</span></h1>
+    <p>Design. Hosting. Maintenance. All handled for you.</p>
+    <a href="#contact" class="primary-btn">Build My Website</a>
   </div>
 
-  <div style="padding:100px 20px;">
-    <h1 style="font-size:48px; margin-bottom:20px;">
-      Websites for Real Businesses
-    </h1>
+  <div class="glow"></div>
+</header>
 
-    <p style="
-      font-size:18px;
-      max-width:600px;
-      margin:0 auto;
-      opacity:0.85;
-    ">
-      We design, host, and maintain websites so your business never
-      has to worry about tech again.
-    </p>
-
-    <a href="mailto:hello@apweb.tech"
-       style="
-         display:inline-block;
-         margin-top:40px;
-         padding:16px 36px;
-         background-color:#38bdf8;
-         color:#020617;
-         border-radius:999px;
-         font-weight:bold;
-         text-decoration:none;
-       ">
-      Get Started
-    </a>
+<section id="services" class="section glass">
+  <h2>What We Do</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Website Design</h3>
+      <p>Custom modern websites built to convert visitors into clients.</p>
+    </div>
+    <div class="card">
+      <h3>Hosting</h3>
+      <p>Fast, secure hosting with zero downtime and free SSL.</p>
+    </div>
+    <div class="card">
+      <h3>Maintenance</h3>
+      <p>Updates, backups, fixes, and support handled monthly.</p>
+    </div>
   </div>
+</section>
 
-  <div style="
-    padding:60px 20px;
-    font-size:14px;
-    opacity:0.6;
-  ">
-    © 2026 apweb.tech
+<section id="process" class="section dark">
+  <h2>Our Process</h2>
+  <div class="timeline">
+    <div>Discovery</div>
+    <div>Design</div>
+    <div>Development</div>
+    <div>Launch</div>
+    <div>Ongoing Support</div>
   </div>
+</section>
 
+<section id="pricing" class="section glass">
+  <h2>Simple Pricing</h2>
+  <div class="pricing">
+    <div class="price-card">
+      <h3>Starter</h3>
+      <p class="price">$499</p>
+      <ul>
+        <li>1 Page Website</li>
+        <li>Mobile Optimized</li>
+        <li>Hosting Setup</li>
+      </ul>
+    </div>
+    <div class="price-card featured">
+      <h3>Business</h3>
+      <p class="price">$999</p>
+      <ul>
+        <li>5 Page Website</li>
+        <li>SEO Ready</li>
+        <li>Hosting + Maintenance</li>
+      </ul>
+    </div>
+    <div class="price-card">
+      <h3>Custom</h3>
+      <p class="price">Let’s Talk</p>
+      <ul>
+        <li>Unlimited Pages</li>
+        <li>Advanced Animations</li>
+        <li>Monthly Support</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section dark">
+  <h2>Start Your Project</h2>
+  <form>
+    <input type="text" placeholder="Name" required />
+    <input type="email" placeholder="Email" required />
+    <textarea placeholder="Tell us about your business"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 APWeb.tech • Built to perform</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
