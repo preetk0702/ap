@@ -1,9 +1,15 @@
-document.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", e => {
-    if (link.getAttribute("href").startsWith("#")) {
-      e.preventDefault();
-      document.querySelector(link.getAttribute("href"))
-        .scrollIntoView({ behavior: "smooth" });
-    }
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(1.6)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
   });
 });
