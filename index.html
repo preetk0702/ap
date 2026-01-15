@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>apweb.tech | Custom Web Experiences</title>
+<title>apweb.tech | Custom Websites for Service Businesses</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -87,7 +87,7 @@ nav{
   font-weight:900;
 }
 
-/* ===== LOGO SYMBOL ===== */
+/* ===== LOGO SYMBOL (SLOW CONSTANT ROTATION) ===== */
 .logo-symbol{
   width:46px;
   height:46px;
@@ -98,8 +98,7 @@ nav{
   color:#050811;
   font-weight:900;
   position:relative;
-  animation:spin 16s linear infinite;
-  transition:.4s ease;
+  animation:spin 22s linear infinite;
 }
 
 .logo-symbol::before{
@@ -111,12 +110,6 @@ nav{
   filter:blur(22px);
   opacity:.35;
   z-index:-1;
-  transition:.4s;
-}
-
-.logo-symbol.active{
-  animation-duration:6s;
-  transform:scale(1.08);
 }
 
 @keyframes spin{
@@ -136,6 +129,7 @@ nav a:hover{opacity:1;color:var(--accent)}
 section{
   padding:120px 6%;
 }
+
 .reveal{
   opacity:0;
   transform:translateY(40px);
@@ -164,7 +158,7 @@ h2{
 
 .sub{
   margin-top:18px;
-  max-width:720px;
+  max-width:760px;
   color:var(--muted);
   line-height:1.6;
 }
@@ -260,9 +254,22 @@ h2{
 .project{
   height:280px;
   border-radius:24px;
-  background:linear-gradient(135deg,rgba(108,242,194,.35),rgba(91,140,255,.35));
   position:relative;
+  overflow:hidden;
 }
+
+.project.barber{
+  background:linear-gradient(135deg,#6cf2c2,#3aa98f);
+}
+
+.project.barber2{
+  background:linear-gradient(135deg,#5b8cff,#3b5bd6);
+}
+
+.project.cleaner{
+  background:linear-gradient(135deg,#9aa4bf,#d7dbe6);
+}
+
 .project span{
   position:absolute;
   bottom:22px;
@@ -307,12 +314,11 @@ footer{
 
 <canvas id="net"></canvas>
 <div class="cursor-glow" id="glow"></div>
-
 <div class="hosted-badge">Hosted by apweb.tech</div>
 
 <nav>
   <div class="logo">
-    <div class="logo-symbol" id="logoSymbol">AP</div>
+    <div class="logo-symbol">AP</div>
     apweb.tech
   </div>
   <div>
@@ -324,17 +330,17 @@ footer{
 
 <section class="hero reveal">
   <div>
-    <h1>Websites crafted with<br><span>motion, precision, and intent</span></h1>
+    <h1>Websites that help<br><span>service businesses get chosen</span></h1>
     <p class="sub">
-      We design, host, and maintain custom websites that feel premium,
-      load fast, and communicate credibility instantly.
+      We design, host, and maintain custom websites that make it easy for
+      customers to trust you, book services, and walk through your door.
     </p>
     <a href="#contact"><button class="btn">Contact Us</button></a>
   </div>
 
   <div class="hero-visual">
     <div class="hero-visual-inner">
-      DESIGN • HOSTING • MAINTENANCE
+      CLEAN • FAST • TRUSTED
     </div>
   </div>
 </section>
@@ -342,25 +348,28 @@ footer{
 <section id="services" class="reveal">
   <h2>What We Do</h2>
   <p class="sub">
-    Everything is built from scratch and fully managed long-term.
+    We focus on clarity, speed, and credibility so your business looks
+    professional the moment someone lands on your site.
   </p>
 
   <div class="grid">
-    <div class="card"><h3>Custom Web Design</h3><p>Hand-crafted layouts and interactions.</p></div>
-    <div class="card"><h3>Advanced UI Motion</h3><p>Intentional animations and micro-interactions.</p></div>
-    <div class="card"><h3>Hosting & Maintenance</h3><p>Secure hosting, updates, and long-term support.</p></div>
-    <div class="card"><h3>Performance & SEO</h3><p>Optimized structure for speed and visibility.</p></div>
+    <div class="card"><h3>Custom Website Design</h3><p>Clean layouts built around your services and customers.</p></div>
+    <div class="card"><h3>Mobile-First Experience</h3><p>Optimized for phones where most customers find you.</p></div>
+    <div class="card"><h3>Hosting & Maintenance</h3><p>Fast hosting, updates, backups, and ongoing support.</p></div>
+    <div class="card"><h3>Visibility & Performance</h3><p>Built to load fast and show up when people search.</p></div>
   </div>
 </section>
 
 <section id="work" class="reveal">
   <h2>Selected Work</h2>
-  <p class="sub">Examples of the type of experiences we build.</p>
+  <p class="sub">
+    A few examples of real service-based websites we’ve built.
+  </p>
 
   <div class="portfolio">
-    <div class="project"><span>SaaS Platform</span></div>
-    <div class="project"><span>E-Commerce Brand</span></div>
-    <div class="project"><span>Startup Website</span></div>
+    <div class="project barber"><span>Barbershop Website</span></div>
+    <div class="project barber2"><span>Barbershop Website</span></div>
+    <div class="project cleaner"><span>Dry Cleaning Service</span></div>
   </div>
 </section>
 
@@ -369,16 +378,16 @@ footer{
     <div>
       <h2>Contact Us</h2>
       <p class="sub">
-        Tell us about your business and goals.<br><br>
-        We provide a <strong>free custom sample page</strong> and
-        outline hosting and maintenance options before you commit.
+        Tell us about your business.<br><br>
+        We’ll create a <strong>free custom sample website</strong>
+        and explain hosting and maintenance options before you commit.
       </p>
     </div>
 
     <form action="mailto:noemail@gmail.com" method="POST" enctype="text/plain">
       <input name="name" placeholder="Your Name" required>
       <input name="email" type="email" placeholder="Email Address" required>
-      <textarea name="message" placeholder="Describe your project"></textarea>
+      <textarea name="message" placeholder="Describe your business and services"></textarea>
       <button class="btn" type="submit">Request Free Sample</button>
     </form>
   </div>
@@ -395,15 +404,11 @@ document.addEventListener("mousemove",e=>{
   glow.style.top=e.clientY+"px";
 });
 
-/* Scroll Reveal + Logo Reaction */
-document.querySelectorAll("section").forEach(sec=>{
+/* Scroll Reveal */
+document.querySelectorAll(".reveal").forEach(el=>{
   new IntersectionObserver(([entry])=>{
-    if(entry.isIntersecting){
-      sec.classList.add("active");
-      logoSymbol.classList.add("active");
-      setTimeout(()=>logoSymbol.classList.remove("active"),600);
-    }
-  },{threshold:.25}).observe(sec);
+    if(entry.isIntersecting) el.classList.add("active");
+  },{threshold:.2}).observe(el);
 });
 
 /* Network Background */
@@ -412,7 +417,7 @@ let w,h,pts=[];
 function resize(){
   w=c.width=window.innerWidth;
   h=c.height=window.innerHeight;
-  pts=[...Array(70)].map(()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6}));
+  pts=[...Array(65)].map(()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6}));
 }
 resize();window.onresize=resize;
 function draw(){
