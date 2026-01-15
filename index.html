@@ -128,29 +128,6 @@ section{padding:120px 6%}
 .reveal{opacity:0;transform:translateY(40px);transition:.9s ease}
 .reveal.active{opacity:1;transform:none}
 
-h1{
-  font-size:clamp(3rem,5vw,4.6rem);
-  font-weight:900;
-  line-height:1.05;
-}
-h1 span{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-h2{
-  font-size:2.8rem;
-  font-weight:900;
-}
-
-.sub{
-  margin-top:18px;
-  max-width:760px;
-  color:var(--muted);
-  line-height:1.6;
-}
-
 /* HERO */
 .hero{
   min-height:100vh;
@@ -158,104 +135,6 @@ h2{
   grid-template-columns:1.2fr .8fr;
   gap:90px;
   align-items:center;
-}
-
-/* BROWSER MOCKUP */
-.browser-window{
-  background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.04));
-  border-radius:26px;
-  border:1px solid rgba(255,255,255,.15);
-  backdrop-filter:blur(18px);
-  overflow:hidden;
-  animation:float 6s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-18px)}
-}
-
-.browser-top{
-  height:44px;
-  background:rgba(5,8,17,.85);
-  display:flex;
-  align-items:center;
-  padding:0 14px;
-  gap:12px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.browser-dots{
-  display:flex;
-  gap:6px;
-}
-
-.browser-dots span{
-  width:10px;height:10px;border-radius:50%;
-  background:#ff5f57;
-}
-.browser-dots span:nth-child(2){background:#febc2e}
-.browser-dots span:nth-child(3){background:#28c840}
-
-.browser-url{
-  margin-left:14px;
-  font-size:.8rem;
-  color:rgba(255,255,255,.6);
-}
-
-.browser-content{
-  height:256px;
-  background:linear-gradient(135deg,rgba(108,242,194,.45),rgba(91,140,255,.45));
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:#050811;
-  padding:24px;
-}
-
-.browser-content h3{
-  font-size:1.8rem;
-  font-weight:900;
-  margin-bottom:8px;
-}
-.browser-content p{margin-bottom:18px}
-.browser-content button{
-  padding:10px 18px;
-  border-radius:10px;
-  border:none;
-  font-weight:800;
-  background:#050811;
-  color:white;
-}
-
-/* BUTTON */
-.btn{
-  margin-top:38px;
-  padding:16px 34px;
-  border-radius:14px;
-  border:none;
-  font-weight:800;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#050811;
-  cursor:pointer;
-}
-.btn:hover{transform:translateY(-4px) scale(1.04)}
-
-/* GRID */
-.grid{
-  margin-top:60px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-
-.card{
-  padding:38px;
-  border-radius:22px;
-  background:var(--panel);
-  border:1px solid rgba(255,255,255,.12);
 }
 
 /* PORTFOLIO */
@@ -266,43 +145,52 @@ h2{
   gap:34px;
 }
 
+/* FIX PORTFOLIO IMAGE SIZING */
 .project{
-  height:280px;
-  border-radius:24px;
-  position:relative;
+  position: relative;
+  height: 280px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
 }
 
-.project.barber{background:linear-gradient(135deg,#6cf2c2,#3aa98f)}
-.project.barber2{background:linear-gradient(135deg,#5b8cff,#3b5bd6)}
-.project.cleaner{background:linear-gradient(135deg,#9aa4bf,#d7dbe6)}
+.project img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.project::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.6),
+    rgba(0,0,0,.15),
+    transparent
+  );
+}
 
 .project span{
   position:absolute;
-  bottom:22px;
-  left:22px;
+  bottom:20px;
+  left:20px;
   font-weight:800;
-  color:#050811;
+  color:#fff;
+  z-index:2;
 }
 
-/* CONTACT */
-.contact-box{
-  margin-top:70px;
-  padding:90px;
-  border-radius:36px;
-  background:linear-gradient(160deg,rgba(91,140,255,.25),rgba(108,242,194,.25));
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:70px;
+.project:hover img{
+  transform:scale(1.06);
 }
 
-input,textarea{
-  width:100%;
-  padding:16px;
-  border-radius:12px;
-  border:none;
-  margin-bottom:14px;
+/* CENTER FEATURE */
+.project:nth-child(2){
+  transform:translateY(-12px);
 }
-textarea{height:130px;resize:none}
 
 footer{
   padding:40px 6%;
@@ -311,14 +199,13 @@ footer{
 }
 
 @media(max-width:900px){
-  .hero,.contact-box{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="net"></canvas>
 <div class="cursor-glow" id="glow"></div>
 <div class="hosted-badge">Hosted by apweb.tech</div>
 
@@ -328,135 +215,36 @@ footer{
     apweb.tech
   </div>
   <div>
-    <a href="#services">Services</a>
     <a href="#work">Work</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<section class="hero reveal">
-  <div>
-    <h1>Websites that help<br><span>service businesses get chosen</span></h1>
-    <p class="sub">
-      We design, host, and maintain custom websites that make it easy for
-      customers to trust you, book services, and take action.
-    </p>
-    <a href="#contact"><button class="btn">Contact Us</button></a>
-  </div>
-
-  <div class="browser-window">
-    <div class="browser-top">
-      <div class="browser-dots"><span></span><span></span><span></span></div>
-      <div class="browser-url">https://apweb.tech</div>
-    </div>
-    <div class="browser-content">
-      <h3>CLEAN • FAST • TRUSTED</h3>
-      <p>Designed to turn visitors into customers</p>
-      <button>Book an Appointment</button>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="reveal">
-  <h2>What We Do</h2>
-  <p class="sub">Clear, fast, professional websites fully managed long-term.</p>
-
-  <div class="grid">
-    <div class="card"><h3>Custom Website Design</h3><p>Designed around your services and customers.</p></div>
-    <div class="card"><h3>Mobile-First Experience</h3><p>Optimized for phones where customers find you.</p></div>
-    <div class="card"><h3>Hosting & Maintenance</h3><p>Fast hosting, updates, backups, and support.</p></div>
-    <div class="card"><h3>Visibility & Performance</h3><p>Built to load fast and show up in search.</p></div>
-  </div>
-</section>
-
 <section id="work" class="reveal">
   <h2>Selected Work</h2>
   <p class="sub">Examples of real service-based websites.</p>
-<div class="portfolio">
 
-  <div class="project">
-    <img src="barber-1.png" alt="Barbershop website design">
-    <span>Barbershop Website</span>
-  </div>
-
-  <div class="project">
-    <img src="barber-2.png" alt="Barbershop website design">
-    <span>Barbershop Website</span>
-  </div>
-
-  <div class="project">
-    <img src="cleaner-1.png" alt="Dry cleaning website design">
-    <span>Dry Cleaning Service</span>
-  </div>
-
-</div>
-</section>
-
-<section id="contact" class="reveal">
-  <div class="contact-box">
-    <div>
-      <h2>Contact Us</h2>
-      <p class="sub">
-        Tell us about your business.<br><br>
-        We’ll build a <strong>free custom sample website</strong>
-        and explain hosting and maintenance options before you commit.
-      </p>
+  <div class="portfolio">
+    <div class="project">
+      <img src="barber-2.png" alt="Barbershop website">
+      <span>Barbershop Website</span>
     </div>
 
-    <form action="mailto:noemail@gmail.com" method="POST" enctype="text/plain">
-      <input name="name" placeholder="Your Name" required>
-      <input name="email" type="email" placeholder="Email Address" required>
-      <textarea name="message" placeholder="Describe your business and services"></textarea>
-      <button class="btn" type="submit">Request Free Sample</button>
-    </form>
+    <div class="project">
+      <img src="barber-1.png" alt="Dominican Barbershop website">
+      <span>Barbershop Website</span>
+    </div>
+
+    <div class="project">
+      <img src="cleaner-1.png" alt="Dry cleaning website">
+      <span>Dry Cleaning Service</span>
+    </div>
   </div>
 </section>
 
 <footer>
   © 2026 apweb.tech • Custom Web Design, Hosting & Maintenance
 </footer>
-
-<script>
-document.addEventListener("mousemove",e=>{
-  glow.style.left=e.clientX+"px";
-  glow.style.top=e.clientY+"px";
-});
-
-document.querySelectorAll(".reveal").forEach(el=>{
-  new IntersectionObserver(([entry])=>{
-    if(entry.isIntersecting) el.classList.add("active");
-  },{threshold:.2}).observe(el);
-});
-
-const c=document.getElementById("net"),ctx=c.getContext("2d");
-let w,h,pts=[];
-function resize(){
-  w=c.width=window.innerWidth;
-  h=c.height=window.innerHeight;
-  pts=[...Array(65)].map(()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6}));
-}
-resize();window.onresize=resize;
-function draw(){
-  ctx.clearRect(0,0,w,h);
-  pts.forEach(p=>{
-    p.x+=p.vx;p.y+=p.vy;
-    if(p.x<0||p.x>w)p.vx*=-1;
-    if(p.y<0||p.y>h)p.vy*=-1;
-    pts.forEach(q=>{
-      let d=Math.hypot(p.x-q.x,p.y-q.y);
-      if(d<120){
-        ctx.strokeStyle="rgba(108,242,194,"+(1-d/120)/4+")";
-        ctx.beginPath();
-        ctx.moveTo(p.x,p.y);
-        ctx.lineTo(q.x,q.y);
-        ctx.stroke();
-      }
-    });
-  });
-  requestAnimationFrame(draw);
-}
-draw();
-</script>
 
 </body>
 </html>
