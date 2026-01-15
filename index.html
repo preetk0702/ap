@@ -201,6 +201,11 @@ footer{
 @media(max-width:900px){
   .hero{grid-template-columns:1fr}
 }
+  /* FAILSAFE: never hide content if JS fails */
+.reveal{
+  opacity:1 !important;
+  transform:none !important;
+}
 </style>
 </head>
 
