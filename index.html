@@ -5,10 +5,9 @@
   <title>APWEB — Digital Experiences</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-  <!-- Three.js -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 </head>
 <body>
@@ -16,26 +15,29 @@
 <div class="grain"></div>
 <div class="cursor"></div>
 
-<!-- LOGO INTRO -->
+<!-- INTRO -->
 <div class="intro">
   <h1>APWEB</h1>
 </div>
 
 <nav>
   <div class="logo">APWEB</div>
-  <a href="#contact" class="magnetic">Contact</a>
+  <a href="#contact" class="magnetic nav-button">Contact</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <canvas id="webgl"></canvas>
   <div class="hero-text">
-    <h1>We create<br><span>digital experiences</span></h1>
-    <p>Custom websites engineered to stand out.</p>
+    <h1>
+      We create<br>
+      <span>digital experiences</span>
+    </h1>
+    <p>Thoughtful, high-quality websites built from scratch.</p>
   </div>
 </section>
 
-<!-- HORIZONTAL SCROLL -->
+<!-- HORIZONTAL -->
 <section class="horizontal">
   <div class="track">
     <div class="panel">Design</div>
@@ -50,25 +52,21 @@
 <section class="cases">
   <h2>Selected Work</h2>
   <div class="case-grid">
-    <div class="case">
-      <div class="overlay">Brand Platform</div>
-    </div>
-    <div class="case">
-      <div class="overlay">Product Experience</div>
-    </div>
-    <div class="case">
-      <div class="overlay">Creative Studio</div>
-    </div>
+    <div class="case"><div class="overlay">Brand Platform</div></div>
+    <div class="case"><div class="overlay">Product Experience</div></div>
+    <div class="case"><div class="overlay">Creative Studio</div></div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-  <h2>Let’s build something unreal.</h2>
+  <h2>Tell us about your company.</h2>
+  <p>We partner with brands looking for long-term digital excellence.</p>
+
   <form>
-    <input type="text" placeholder="Name">
-    <input type="email" placeholder="Email">
-    <textarea placeholder="Tell us about your project"></textarea>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Tell us about your company"></textarea>
     <button class="magnetic">Get in touch</button>
   </form>
 </section>
