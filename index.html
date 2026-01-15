@@ -1,91 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APWeb | High-Performance Websites</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>apweb.tech</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #020617, #020617);
+  color: #e5e7eb;
+}
+
+header {
+  padding: 24px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.hero {
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 650px;
+  margin: auto;
+  opacity: 0.85;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 16px 36px;
+  background: #38bdf8;
+  color: #020617;
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.section {
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.card {
+  background: #0f172a;
+  padding: 32px;
+  max-width: 300px;
+  border-radius: 16px;
+}
+</style>
 </head>
+
 <body>
 
-<div class="noise"></div>
-
-<header class="nav">
-  <img src="logo.svg" class="logo" />
-  <nav>
-    <a href="#work">Work</a>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#contact" class="btn">Tell us about your company</a>
-  </nav>
+<header>
+  apweb.tech
 </header>
 
 <section class="hero">
-  <h1>Websites engineered to convert, scale, and stand out</h1>
-  <p>We design and build custom websites for companies that want more customers, stronger branding, and real performance.</p>
-  <div class="hero-actions">
-    <a href="#contact" class="btn primary">Start a project</a>
-    <a href="#work" class="btn ghost">View selected work</a>
+  <h1>We build websites that actually grow your business</h1>
+  <p>
+    Custom websites, hosting, maintenance, optimization, and anything else your company needs.
+    Built clean, fast, and designed to convert visitors into customers.
+  </p>
+  <a class="button" href="#services">Start your project</a>
+</section>
+
+<section id="services" class="section">
+  <h2>What we do</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Custom Websites</h3>
+      <p>Fully custom designs built from scratch. No templates. No limits.</p>
+    </div>
+
+    <div class="card">
+      <h3>Hosting & Maintenance</h3>
+      <p>Fast hosting, updates, security, and ongoing support.</p>
+    </div>
+
+    <div class="card">
+      <h3>Optimization</h3>
+      <p>SEO, performance tuning, and conversion-focused layouts.</p>
+    </div>
   </div>
 </section>
 
-<section id="work" class="work">
-  <h2>Selected Work</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Fintech SaaS Platform</h3>
-      <p>High-conversion landing system with custom analytics and performance optimization.</p>
-    </div>
-    <div class="card">
-      <h3>Luxury E-Commerce Brand</h3>
-      <p>Custom storefront, advanced animations, SEO optimization, and checkout flow redesign.</p>
-    </div>
-    <div class="card">
-      <h3>Local Service Business</h3>
-      <p>Lead-generation focused site with booking automation and local SEO growth.</p>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="services">
-  <h2>What We Do</h2>
-  <div class="grid">
-    <div class="service">Custom Website Design</div>
-    <div class="service">Full-Stack Development</div>
-    <div class="service">Hosting & Maintenance</div>
-    <div class="service">SEO & Performance Optimization</div>
-    <div class="service">Animations & Interactions</div>
-    <div class="service">Ongoing Support & Scaling</div>
-  </div>
-</section>
-
-<section id="process" class="process">
-  <h2>How We Work</h2>
-  <ol>
-    <li>Understand your company and goals</li>
-    <li>Design a system tailored to your brand</li>
-    <li>Build fast, clean, scalable code</li>
-    <li>Optimize for traffic, SEO, and conversions</li>
-    <li>Maintain, improve, and grow with you</li>
-  </ol>
-</section>
-
-<section id="contact" class="contact">
-  <h2>Tell us about your company</h2>
-  <form>
-    <input type="text" placeholder="Company name" required />
-    <input type="email" placeholder="Email address" required />
-    <textarea placeholder="What are you trying to build or improve?" required></textarea>
-    <button class="btn primary">Submit</button>
-  </form>
-</section>
-
-<footer>
-  <p>© 2026 APWeb. Built for growth.</p>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
