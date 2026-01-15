@@ -270,6 +270,25 @@ h2{
   height:280px;
   border-radius:24px;
   position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.project:hover{
+  transform:scale(1.05);
+  box-shadow:0 12px 40px rgba(0,0,0,.4);
+}
+
+.project img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .3s ease;
+}
+
+.project:hover img{
+  transform:scale(1.1);
 }
 
 .project.barber{background:linear-gradient(135deg,#6cf2c2,#3aa98f)}
@@ -282,6 +301,15 @@ h2{
   left:22px;
   font-weight:800;
   color:#050811;
+  z-index:2;
+  background:rgba(255,255,255,.9);
+  padding:8px 16px;
+  border-radius:12px;
+  transition:transform .3s ease;
+}
+
+.project:hover span{
+  transform:translateY(-4px);
 }
 
 /* CONTACT */
