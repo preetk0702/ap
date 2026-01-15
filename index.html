@@ -175,6 +175,13 @@ h2{
   position:relative;
   overflow:hidden;
   background:#000;
+  cursor:pointer;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.project:hover{
+  transform:scale(1.05);
+  box-shadow:0 12px 40px rgba(0,0,0,.5);
 }
 
 .project img{
@@ -182,6 +189,11 @@ h2{
   height:100%;
   object-fit:cover;
   display:block;
+  transition:transform .3s ease;
+}
+
+.project:hover img{
+  transform:scale(1.1);
 }
 
 .project::after{
@@ -203,11 +215,20 @@ h2{
   font-weight:800;
   color:#fff;
   z-index:2;
+  transition:transform .3s ease;
+}
+
+.project:hover span{
+  transform:translateY(-4px);
 }
 
 /* CENTER FEATURE */
 .project:nth-child(2){
   transform:translateY(-12px);
+}
+
+.project:nth-child(2):hover{
+  transform:translateY(-12px) scale(1.05);
 }
 
 /* CONTACT */
