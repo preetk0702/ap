@@ -2,115 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>APWEB | Web Design, Hosting & Maintenance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <title>APWeb | High-Performance Websites</title>
+  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="noise"></div>
 
-<nav>
-  <div class="brand">
-    <div class="logo">AP</div>
-    <span>apweb</span>
-  </div>
-  <button class="cta">Tell us about your company</button>
-</nav>
-
-<header class="hero">
-  <h1>
-    Websites built to<br />
-    <span>actually represent your brand</span>
-  </h1>
-  <p>
-    APWEB designs, builds, and maintains modern websites for companies that care about quality, performance, and credibility.
-  </p>
-  <div class="hero-actions">
-    <button class="primary">Start a conversation</button>
-    <button class="secondary">View our work</button>
-  </div>
+<header class="nav">
+  <img src="logo.svg" class="logo" />
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#contact" class="btn">Tell us about your company</a>
+  </nav>
 </header>
 
-<section class="services">
-  <h2>What we do</h2>
+<section class="hero">
+  <h1>Websites engineered to convert, scale, and stand out</h1>
+  <p>We design and build custom websites for companies that want more customers, stronger branding, and real performance.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn primary">Start a project</a>
+    <a href="#work" class="btn ghost">View selected work</a>
+  </div>
+</section>
 
-  <div class="service-grid">
+<section id="work" class="work">
+  <h2>Selected Work</h2>
+
+  <div class="grid">
     <div class="card">
-      <h3>Web Design & Development</h3>
-      <p>
-        Custom-designed websites built from the ground up. No templates, no shortcuts. Every detail is intentional.
-      </p>
+      <h3>Fintech SaaS Platform</h3>
+      <p>High-conversion landing system with custom analytics and performance optimization.</p>
     </div>
-
     <div class="card">
-      <h3>Hosting & Infrastructure</h3>
-      <p>
-        Fast, secure, and reliable hosting. We handle performance, uptime, and deployments so you do not have to.
-      </p>
+      <h3>Luxury E-Commerce Brand</h3>
+      <p>Custom storefront, advanced animations, SEO optimization, and checkout flow redesign.</p>
     </div>
-
     <div class="card">
-      <h3>Ongoing Maintenance</h3>
-      <p>
-        Updates, fixes, optimizations, and improvements handled continuously as your business evolves.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Brand & UX Polish</h3>
-      <p>
-        We refine layout, motion, typography, and interactions to ensure your site feels premium and trustworthy.
-      </p>
+      <h3>Local Service Business</h3>
+      <p>Lead-generation focused site with booking automation and local SEO growth.</p>
     </div>
   </div>
 </section>
 
-<section class="work">
-  <h2>Selected work</h2>
-
-  <div class="work-grid">
-    <div class="work-item">
-      <span>Fintech Platform</span>
-      <p>High-performance dashboard with real-time data and clean UI</p>
-    </div>
-
-    <div class="work-item">
-      <span>Luxury Services Brand</span>
-      <p>Minimal, dark-themed marketing site focused on trust and clarity</p>
-    </div>
-
-    <div class="work-item">
-      <span>Startup Landing Page</span>
-      <p>Conversion-focused design without aggressive sales tactics</p>
-    </div>
+<section id="services" class="services">
+  <h2>What We Do</h2>
+  <div class="grid">
+    <div class="service">Custom Website Design</div>
+    <div class="service">Full-Stack Development</div>
+    <div class="service">Hosting & Maintenance</div>
+    <div class="service">SEO & Performance Optimization</div>
+    <div class="service">Animations & Interactions</div>
+    <div class="service">Ongoing Support & Scaling</div>
   </div>
 </section>
 
-<section class="process">
-  <h2>How we work</h2>
-
-  <div class="steps">
-    <div class="step">01 — Learn your business</div>
-    <div class="step">02 — Design with intention</div>
-    <div class="step">03 — Build clean and scalable</div>
-    <div class="step">04 — Maintain and improve</div>
-  </div>
+<section id="process" class="process">
+  <h2>How We Work</h2>
+  <ol>
+    <li>Understand your company and goals</li>
+    <li>Design a system tailored to your brand</li>
+    <li>Build fast, clean, scalable code</li>
+    <li>Optimize for traffic, SEO, and conversions</li>
+    <li>Maintain, improve, and grow with you</li>
+  </ol>
 </section>
 
-<section class="contact">
+<section id="contact" class="contact">
   <h2>Tell us about your company</h2>
-  <p>
-    We work with a limited number of clients to ensure quality.  
-    Reach out and we will see if we are a good fit.
-  </p>
-  <button class="primary large">Start the conversation</button>
+  <form>
+    <input type="text" placeholder="Company name" required />
+    <input type="email" placeholder="Email address" required />
+    <textarea placeholder="What are you trying to build or improve?" required></textarea>
+    <button class="btn primary">Submit</button>
+  </form>
 </section>
 
 <footer>
-  <span>© 2026 APWEB</span>
-  <span>Design • Development • Hosting</span>
+  <p>© 2026 APWeb. Built for growth.</p>
 </footer>
 
 <script src="script.js"></script>
