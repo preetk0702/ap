@@ -1,378 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>apweb.tech | High-End Web Design, Hosting & Growth</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>apweb.tech | Custom Websites That Convert</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #0b0f1a;
-      --card: rgba(255,255,255,0.08);
-      --accent: #6cf2c2;
-      --accent2: #5b8cff;
-      --text: #e9ecf1;
-      --muted: #9aa4bf;
-      --glow: 0 0 40px rgba(108,242,194,0.35);
-    }
+<style>
+:root{
+  --bg:#070b16;
+  --bg2:#0e1426;
+  --card:rgba(255,255,255,.08);
+  --accent:#6cf2c2;
+  --accent2:#5b8cff;
+  --text:#eef1f7;
+  --muted:#a3acc7;
+}
 
-    * {
-      box-sizing: border-box;
-      font-family: "Inter", sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 
-    body {
-      background: radial-gradient(circle at top, #12182d, var(--bg));
-      color: var(--text);
-      overflow-x: hidden;
-    }
+html{scroll-behavior:smooth}
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(14px);
-      background: rgba(10,14,30,0.6);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
+body{
+  background:
+    radial-gradient(1200px 600px at 10% -10%,rgba(108,242,194,.15),transparent),
+    radial-gradient(900px 500px at 90% 10%,rgba(91,140,255,.18),transparent),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+  color:var(--text);
+  overflow-x:hidden;
+}
 
-    nav .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      font-size: 1.2rem;
-      letter-spacing: 0.5px;
-    }
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(14px);
+  background:rgba(7,11,22,.65);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  z-index:1000;
+}
 
-    .logo-badge {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      color: #0b0f1a;
-      box-shadow: var(--glow);
-    }
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:900;
+}
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 500;
-      margin-left: 28px;
-      opacity: 0.9;
-    }
+.logo-badge{
+  width:40px;height:40px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:grid;
+  place-items:center;
+  color:#070b16;
+  font-weight:900;
+  animation:pulse 3.5s infinite;
+}
 
-    nav a:hover {
-      opacity: 1;
-      color: var(--accent);
-    }
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 rgba(108,242,194,.0)}
+  50%{box-shadow:0 0 35px rgba(108,242,194,.35)}
+}
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      padding: 140px 7% 80px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 80px;
-      align-items: center;
-    }
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  margin-left:26px;
+  font-weight:500;
+  opacity:.85;
+}
 
-    .hero h1 {
-      font-size: clamp(2.6rem, 4.5vw, 4.2rem);
-      font-weight: 900;
-      line-height: 1.05;
-      margin-bottom: 22px;
-    }
+nav a:hover{opacity:1;color:var(--accent)}
 
-    .hero h1 span {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+/* HERO */
+.hero{
+  padding:130px 6% 70px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:70px;
+  align-items:center;
+}
 
-    .hero p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.6;
-      max-width: 520px;
-      margin-bottom: 38px;
-    }
+.hero h1{
+  font-size:clamp(2.6rem,4.8vw,4.3rem);
+  font-weight:900;
+  line-height:1.05;
+}
 
-    .hero-buttons {
-      display: flex;
-      gap: 18px;
-    }
+.hero h1 span{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
-    .btn {
-      padding: 16px 28px;
-      border-radius: 14px;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 0.95rem;
-      transition: 0.25s ease;
-    }
+.hero p{
+  margin-top:18px;
+  color:var(--muted);
+  max-width:520px;
+  line-height:1.6;
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #0b0f1a;
-      box-shadow: var(--glow);
-    }
+.hero ul{
+  margin-top:24px;
+  list-style:none;
+}
 
-    .btn-primary:hover {
-      transform: translateY(-3px) scale(1.02);
-    }
+.hero li{
+  margin-bottom:10px;
+  color:#dfe4f5;
+}
 
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.18);
-      color: var(--text);
-    }
+.btn{
+  margin-top:34px;
+  padding:16px 30px;
+  border-radius:14px;
+  font-weight:800;
+  border:none;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#070b16;
+  transition:.25s;
+}
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.06);
-    }
+.btn:hover{transform:translateY(-3px) scale(1.03)}
 
-    /* HERO MOCKUP */
-    .mockup {
-      background: linear-gradient(160deg, rgba(255,255,255,0.15), rgba(255,255,255,0.02));
-      border-radius: 22px;
-      padding: 28px;
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-      animation: float 6s ease-in-out infinite;
-    }
+/* MOCKUP */
+.mockup{
+  position:relative;
+  padding:26px;
+  border-radius:22px;
+  background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.03));
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.2);
+  animation:float 6s ease-in-out infinite;
+}
 
-    .mockup-header {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-16px)}
+}
 
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.4);
-    }
+.browser{
+  height:280px;
+  border-radius:14px;
+  background:
+    linear-gradient(135deg,rgba(108,242,194,.35),rgba(91,140,255,.35));
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  color:#070b16;
+  text-align:center;
+}
 
-    .mockup-content {
-      height: 280px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(108,242,194,0.25), rgba(91,140,255,0.25));
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      letter-spacing: 1px;
-      color: #0b0f1a;
-    }
+/* SECTIONS */
+section{padding:70px 6%}
 
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-    }
+h2{
+  font-size:2.5rem;
+  font-weight:900;
+}
 
-    /* SECTIONS */
-    section {
-      padding: 110px 7%;
-    }
+.sub{
+  margin-top:14px;
+  color:var(--muted);
+  max-width:620px;
+}
 
-    .section-title {
-      font-size: 2.6rem;
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
+.grid{
+  margin-top:46px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:26px;
+}
 
-    .section-sub {
-      color: var(--muted);
-      max-width: 640px;
-      margin-bottom: 60px;
-      font-size: 1.05rem;
-    }
+.card{
+  padding:34px;
+  border-radius:20px;
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.15);
+  backdrop-filter:blur(14px);
+  transition:.3s;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap: 28px;
-    }
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(0,0,0,.55);
+}
 
-    .card {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 34px;
-      border: 1px solid rgba(255,255,255,0.15);
-      backdrop-filter: blur(14px);
-      transition: 0.3s ease;
-    }
+.card h3{margin-bottom:10px}
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-    }
+/* FREE SAMPLE */
+.sample{
+  margin-top:30px;
+  padding:28px;
+  border-radius:20px;
+  background:
+    linear-gradient(135deg,rgba(108,242,194,.25),rgba(91,140,255,.25));
+  border:1px solid rgba(255,255,255,.25);
+}
 
-    .card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-    }
+/* CONTACT */
+.contact{
+  margin-top:20px;
+  padding:60px;
+  border-radius:28px;
+  background:linear-gradient(160deg,rgba(91,140,255,.3),rgba(108,242,194,.3));
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+}
 
-    .card p {
-      color: var(--muted);
-      line-height: 1.55;
-    }
+input,textarea{
+  width:100%;
+  padding:16px;
+  border-radius:12px;
+  border:none;
+  margin-bottom:14px;
+  font-size:.95rem;
+}
 
-    /* CONTACT */
-    .contact {
-      background: linear-gradient(160deg, rgba(91,140,255,0.25), rgba(108,242,194,0.25));
-      border-radius: 30px;
-      padding: 80px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
+textarea{height:120px;resize:none}
 
-    form input, form textarea {
-      width: 100%;
-      padding: 16px;
-      margin-bottom: 14px;
-      border-radius: 12px;
-      border: none;
-      outline: none;
-      background: rgba(255,255,255,0.9);
-      font-size: 0.95rem;
-    }
+footer{
+  padding:30px 6%;
+  text-align:center;
+  color:var(--muted);
+  font-size:.9rem;
+}
 
-    textarea {
-      resize: none;
-      height: 120px;
-    }
-
-    footer {
-      padding: 40px 7%;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    @media(max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .contact {
-        grid-template-columns: 1fr;
-        padding: 60px 30px;
-      }
-    }
-  </style>
+@media(max-width:900px){
+  .hero,.contact{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
 
-  <nav>
-    <div class="logo">
-      <div class="logo-badge">AP</div>
-      apweb.tech
-    </div>
-    <div>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<nav>
+  <div class="logo">
+    <div class="logo-badge">AP</div>
+    apweb.tech
+  </div>
+  <div>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-  <section class="hero">
-    <div>
-      <h1>We build <span>elite websites</span><br>that actually grow your business</h1>
-      <p>
-        apweb.tech designs, hosts, and maintains high-performance websites that convert visitors into real customers.
-        Custom design, motion, SEO, speed, and scalability. If you can imagine it, we can build it.
-      </p>
-      <div class="hero-buttons">
-        <button class="btn btn-primary">Get a Free Quote</button>
-        <button class="btn btn-secondary">See What We Can Build</button>
-      </div>
-    </div>
-
-    <div class="mockup">
-      <div class="mockup-header">
-        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      </div>
-      <div class="mockup-content">
-        YOUR WEBSITE<br>BUILT RIGHT
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <h2 class="section-title">What We Do</h2>
-    <p class="section-sub">
-      Not templates. Not basic. Every project is designed to stand out, load fast, rank higher, and convert better.
+<section class="hero">
+  <div>
+    <h1>Custom websites that<br><span>actually bring customers</span></h1>
+    <p>
+      We design and build high-end websites for real businesses. Not templates.
+      Not generic. Fast, animated, optimized, and built to convert.
     </p>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Custom Web Design</h3>
-        <p>Modern UI, animations, branding, and interactions that make your company look credible and high-end.</p>
-      </div>
-      <div class="card">
-        <h3>Hosting & Maintenance</h3>
-        <p>Fast hosting, updates, security, backups, and ongoing support so you never worry about your site.</p>
-      </div>
-      <div class="card">
-        <h3>SEO & Performance</h3>
-        <p>Optimized structure, speed, and search visibility so customers actually find you.</p>
-      </div>
-      <div class="card">
-        <h3>Anything You Want</h3>
-        <p>Landing pages, e-commerce, dashboards, animations, integrations, automations. No limits.</p>
-      </div>
-    </div>
-  </section>
+    <ul>
+      <li>• Custom design and motion</li>
+      <li>• SEO and performance optimized</li>
+      <li>• Hosting and maintenance included</li>
+      <li>• Free custom sample site before you commit</li>
+    </ul>
 
-  <section id="process">
-    <h2 class="section-title">How We Build Better Websites</h2>
-    <div class="grid">
-      <div class="card"><h3>Strategy First</h3><p>We design with your goals and customers in mind.</p></div>
-      <div class="card"><h3>Design That Moves</h3><p>Motion, interaction, and visuals that stand out instantly.</p></div>
-      <div class="card"><h3>Built to Scale</h3><p>Clean code that grows with your business.</p></div>
-      <div class="card"><h3>Launch & Grow</h3><p>Hosting, optimization, and ongoing improvements.</p></div>
-    </div>
-  </section>
+    <a href="#contact"><button class="btn">Get a Free Quote</button></a>
+  </div>
 
-  <section id="contact">
-    <div class="contact">
-      <div>
-        <h2 class="section-title">Get a Quote</h2>
-        <p class="section-sub">
-          Tell us what you want. We will tell you how to build it better than your competitors.
-        </p>
-      </div>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <textarea placeholder="Tell us about your project"></textarea>
-        <button class="btn btn-primary" type="submit">Send Request</button>
-      </form>
+  <div class="mockup">
+    <div class="browser">
+      YOUR BUSINESS<br>BUILT PROPERLY
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2026 apweb.tech • High-End Web Design & Hosting
-  </footer>
+<section id="services">
+  <h2>What We Do</h2>
+  <p class="sub">
+    Every project is designed from scratch to stand out and outperform competitors.
+  </p>
+
+  <div class="grid">
+    <div class="card"><h3>Custom Web Design</h3><p>Unique layouts, branding, animations, and interactions.</p></div>
+    <div class="card"><h3>Hosting & Maintenance</h3><p>Fast, secure hosting with updates and support.</p></div>
+    <div class="card"><h3>SEO & Speed</h3><p>Clean code and structure that ranks and loads fast.</p></div>
+    <div class="card"><h3>Unlimited Features</h3><p>Anything you want built exactly how you want it.</p></div>
+  </div>
+
+  <div class="sample">
+    <h3>Free Custom Sample Website</h3>
+    <p>
+      Before you commit, we build a **free custom demo page** tailored to your business
+      so you can see exactly what we can do.
+    </p>
+  </div>
+</section>
+
+<section id="process">
+  <h2>How We Work</h2>
+  <div class="grid">
+    <div class="card"><h3>Understand</h3><p>Your goals, brand, and customers.</p></div>
+    <div class="card"><h3>Design</h3><p>Layouts and motion that feel premium.</p></div>
+    <div class="card"><h3>Build</h3><p>Clean, scalable, optimized code.</p></div>
+    <div class="card"><h3>Grow</h3><p>Hosting, improvements, and long-term support.</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <div>
+      <h2>Get Your Free Quote</h2>
+      <p class="sub">
+        Tell us about your business. We will build a free custom sample
+        so you can see the value before paying anything.
+      </p>
+    </div>
+
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea placeholder="What do you want to build?"></textarea>
+      <button class="btn" type="submit">Request Free Sample</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 apweb.tech • Custom Web Design • Hosting • Growth
+</footer>
 
 </body>
 </html>
