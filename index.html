@@ -2,18 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>APWEB — Digital Experiences</title>
+  <title>APWEB — Web Design & Digital Experiences</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
   <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 </head>
 <body>
 
 <div class="grain"></div>
-<div class="cursor"></div>
 
 <!-- INTRO -->
 <div class="intro">
@@ -22,7 +20,7 @@
 
 <nav>
   <div class="logo">APWEB</div>
-  <a href="#contact" class="magnetic nav-button">Contact</a>
+  <a href="#contact" class="nav-button">Contact</a>
 </nav>
 
 <!-- HERO -->
@@ -30,48 +28,89 @@
   <canvas id="webgl"></canvas>
   <div class="hero-text">
     <h1>
-      We create<br>
-      <span>digital experiences</span>
+      We design and build<br>
+      digital products for<br>
+      growing companies
     </h1>
-    <p>Thoughtful, high-quality websites built from scratch.</p>
+    <p>Custom websites, motion, and infrastructure built with care.</p>
   </div>
 </section>
 
-<!-- HORIZONTAL -->
-<section class="horizontal">
-  <div class="track">
-    <div class="panel">Design</div>
-    <div class="panel">Motion</div>
-    <div class="panel">WebGL</div>
-    <div class="panel">Performance</div>
-    <div class="panel">Maintenance</div>
-  </div>
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <p>
+    We work with companies that value clarity, longevity, and thoughtful execution.
+    No templates. No shortcuts. Every project is built from the ground up.
+  </p>
 </section>
 
-<!-- CASE STUDIES -->
+<!-- SELECTED WORK -->
 <section class="cases">
   <h2>Selected Work</h2>
+
   <div class="case-grid">
-    <div class="case"><div class="overlay">Brand Platform</div></div>
-    <div class="case"><div class="overlay">Product Experience</div></div>
-    <div class="case"><div class="overlay">Creative Studio</div></div>
+    <div class="case">
+      <div class="case-info">
+        <h3>Northshore Capital</h3>
+        <p>Corporate website for a private investment firm</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-info">
+        <h3>Atlas Health Group</h3>
+        <p>Multi-location healthcare platform and CMS</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-info">
+        <h3>Veridian Studio</h3>
+        <p>Creative portfolio and motion identity</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-info">
+        <h3>Summit Logistics</h3>
+        <p>Enterprise logistics website and hosting</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="service">
+    <h3>Website Design</h3>
+    <p>Brand-focused, responsive websites designed for clarity and performance.</p>
+  </div>
+  <div class="service">
+    <h3>Development</h3>
+    <p>Clean, maintainable codebases built for speed and scalability.</p>
+  </div>
+  <div class="service">
+    <h3>Hosting & Maintenance</h3>
+    <p>Secure hosting, updates, monitoring, and long-term support.</p>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-  <h2>Tell us about your company.</h2>
-  <p>We partner with brands looking for long-term digital excellence.</p>
+  <h2>Tell us about your company</h2>
+  <p>If it’s a good fit, we’ll follow up to schedule a conversation.</p>
 
   <form>
     <input type="text" placeholder="Name" required>
     <input type="email" placeholder="Email" required>
-    <textarea placeholder="Tell us about your company"></textarea>
-    <button class="magnetic">Get in touch</button>
+    <textarea placeholder="Briefly describe your company and goals"></textarea>
+    <button type="submit">Submit</button>
   </form>
 </section>
 
-<footer>© APWEB</footer>
+<footer>
+  © APWEB
+</footer>
 
 <script src="script.js"></script>
 </body>
