@@ -2,111 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>APWeb.tech | Web Design, Hosting & Maintenance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APWEB — Digital Experiences</title>
+
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<div class="cursor"></div>
+
 <header class="hero">
   <nav>
-    <div class="logo">
-      <span>AP</span><span>WEB</span>
+    <div class="logo">APWEB</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#offer">What We Do</a>
+      <a href="#contact" class="nav-cta">Contact</a>
     </div>
-    <ul>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact" class="cta">Get Started</a></li>
-    </ul>
   </nav>
 
-  <div class="hero-content">
-    <h1>Websites That <span>Convert</span></h1>
-    <p>Design. Hosting. Maintenance. All handled for you.</p>
-    <a href="#contact" class="primary-btn">Build My Website</a>
+  <div class="hero-text">
+    <h1>
+      We build<br>
+      <span data-text="digital">digital</span><br>
+      experiences
+    </h1>
+    <p>High-end websites for brands that want to stand out.</p>
   </div>
 
-  <div class="glow"></div>
+  <div class="scroll">Scroll</div>
 </header>
 
-<section id="services" class="section glass">
-  <h2>What We Do</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Website Design</h3>
-      <p>Custom modern websites built to convert visitors into clients.</p>
+<section id="work" class="statement">
+  <h2>
+    Not templates.<br>
+    Not drag and drop.<br>
+    <span>Pure custom builds.</span>
+  </h2>
+</section>
+
+<section id="offer" class="offer">
+  <div class="offer-grid">
+    <div class="offer-item">
+      <span>01</span>
+      <h3>Custom Website Design</h3>
+      <p>Concept-driven layouts designed from scratch for your brand.</p>
     </div>
-    <div class="card">
-      <h3>Hosting</h3>
-      <p>Fast, secure hosting with zero downtime and free SSL.</p>
+    <div class="offer-item">
+      <span>02</span>
+      <h3>Advanced Animations</h3>
+      <p>Scroll effects, motion systems, micro-interactions, and transitions.</p>
     </div>
-    <div class="card">
-      <h3>Maintenance</h3>
-      <p>Updates, backups, fixes, and support handled monthly.</p>
+    <div class="offer-item">
+      <span>03</span>
+      <h3>Performance Hosting</h3>
+      <p>Fast, secure hosting optimized for speed and reliability.</p>
+    </div>
+    <div class="offer-item">
+      <span>04</span>
+      <h3>Ongoing Maintenance</h3>
+      <p>Updates, improvements, and long-term support.</p>
     </div>
   </div>
 </section>
 
-<section id="process" class="section dark">
-  <h2>Our Process</h2>
-  <div class="timeline">
-    <div>Discovery</div>
-    <div>Design</div>
-    <div>Development</div>
-    <div>Launch</div>
-    <div>Ongoing Support</div>
-  </div>
+<section class="philosophy">
+  <h2>
+    Your website is not a page.<br>
+    <span>It is an experience.</span>
+  </h2>
 </section>
 
-<section id="pricing" class="section glass">
-  <h2>Simple Pricing</h2>
-  <div class="pricing">
-    <div class="price-card">
-      <h3>Starter</h3>
-      <p class="price">$499</p>
-      <ul>
-        <li>1 Page Website</li>
-        <li>Mobile Optimized</li>
-        <li>Hosting Setup</li>
-      </ul>
-    </div>
-    <div class="price-card featured">
-      <h3>Business</h3>
-      <p class="price">$999</p>
-      <ul>
-        <li>5 Page Website</li>
-        <li>SEO Ready</li>
-        <li>Hosting + Maintenance</li>
-      </ul>
-    </div>
-    <div class="price-card">
-      <h3>Custom</h3>
-      <p class="price">Let’s Talk</p>
-      <ul>
-        <li>Unlimited Pages</li>
-        <li>Advanced Animations</li>
-        <li>Monthly Support</li>
-      </ul>
-    </div>
-  </div>
-</section>
+<section id="contact" class="contact">
+  <h2>Let’s build something unreal.</h2>
+  <p>Tell us about your idea.</p>
 
-<section id="contact" class="section dark">
-  <h2>Start Your Project</h2>
   <form>
-    <input type="text" placeholder="Name" required />
-    <input type="email" placeholder="Email" required />
-    <textarea placeholder="Tell us about your business"></textarea>
-    <button type="submit">Send Message</button>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Project details"></textarea>
+    <button type="submit">Get in Touch</button>
   </form>
 </section>
 
 <footer>
-  <p>© 2026 APWeb.tech • Built to perform</p>
+  <p>© APWEB • Digital Experiences</p>
 </footer>
 
 <script src="script.js"></script>
