@@ -503,6 +503,8 @@ const button = document.getElementById("submitBtn");
 
 form.addEventListener("submit", async function(e) {
   e.preventDefault();
+
+  // submitting state
   button.textContent = "Submitting...";
   button.disabled = true;
 
@@ -512,12 +514,23 @@ form.addEventListener("submit", async function(e) {
     await fetch(form.action, {
       method: form.method,
       body: data,
-      headers: { 'Accept': 'application/json' }
+      headers: { "Accept": "application/json" }
     });
 
+    // success state
+    button.textContent = "Submitted ✓";
     status.style.display = "block";
     form.reset();
+
+    // reset after 3 seconds
+    setTimeout(() => {
+      button.textContent = "Request Free Sample";
+      button.disabled = false;
+      status.style.display = "none";
+    }, 3000);
+
   } catch (error) {
+    // failure state
     button.textContent = "Try Again";
     button.disabled = false;
   }
