@@ -5,36 +5,40 @@ document.addEventListener('mousemove', e => {
   cursor.style.top = e.clientY + 'px';
 });
 
-/* INTRO ANIMATION */
+/* INTRO */
 setTimeout(() => {
-  document.querySelector('.intro').style.opacity = 0;
-  setTimeout(() => document.querySelector('.intro').remove(), 800);
+  const intro = document.querySelector('.intro');
+  intro.style.opacity = 0;
+  setTimeout(() => intro.remove(), 800);
 }, 1400);
 
-/* MAGNETIC BUTTON */
-document.querySelectorAll('.magnetic').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const rect = btn.getBoundingClientRect();
-    btn.style.transform = `translate(${(e.clientX - rect.left - rect.width/2)/4}px, ${(e.clientY - rect.top - rect.height/2)/4}px)`;
+/* MAGNETIC */
+document.querySelectorAll('.magnetic').forEach(el => {
+  el.addEventListener('mousemove', e => {
+    const r = el.getBoundingClientRect();
+    el.style.transform = `translate(${(e.clientX - r.left - r.width/2)/5}px, ${(e.clientY - r.top - r.height/2)/5}px)`;
   });
-  btn.addEventListener('mouseleave', () => {
-    btn.style.transform = 'translate(0,0)';
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = 'translate(0,0)';
   });
 });
 
 /* HORIZONTAL SCROLL */
 const track = document.querySelector('.track');
 window.addEventListener('scroll', () => {
-  const scroll = window.scrollY;
-  track.style.transform = `translateX(-${scroll}px)`;
+  track.style.transform = `translateX(-${window.scrollY}px)`;
 });
 
-/* THREE.JS HERO */
+/* THREE.JS */
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
 camera.position.z = 5;
 
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('webgl'), alpha: true });
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.getElementById('webgl'),
+  alpha: true,
+  antialias: true
+});
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 const geometry = new THREE.IcosahedronGeometry(1.6, 1);
@@ -42,7 +46,6 @@ const material = new THREE.MeshStandardMaterial({
   color: 0x5eead4,
   wireframe: true
 });
-
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
@@ -56,5 +59,4 @@ function animate() {
   mesh.rotation.y += 0.003;
   renderer.render(scene, camera);
 }
-
 animate();
