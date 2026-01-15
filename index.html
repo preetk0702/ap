@@ -1,94 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
   <title>APWEB — Digital Experiences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 </head>
 <body>
 
+<div class="grain"></div>
 <div class="cursor"></div>
 
-<header class="hero">
-  <nav>
-    <div class="logo">APWEB</div>
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#offer">What We Do</a>
-      <a href="#contact" class="nav-cta">Contact</a>
-    </div>
-  </nav>
+<!-- LOGO INTRO -->
+<div class="intro">
+  <h1>APWEB</h1>
+</div>
 
+<nav>
+  <div class="logo">APWEB</div>
+  <a href="#contact" class="magnetic">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="webgl"></canvas>
   <div class="hero-text">
-    <h1>
-      We build<br>
-      <span data-text="digital">digital</span><br>
-      experiences
-    </h1>
-    <p>High-end websites for brands that want to stand out.</p>
+    <h1>We create<br><span>digital experiences</span></h1>
+    <p>Custom websites engineered to stand out.</p>
   </div>
-
-  <div class="scroll">Scroll</div>
-</header>
-
-<section id="work" class="statement">
-  <h2>
-    Not templates.<br>
-    Not drag and drop.<br>
-    <span>Pure custom builds.</span>
-  </h2>
 </section>
 
-<section id="offer" class="offer">
-  <div class="offer-grid">
-    <div class="offer-item">
-      <span>01</span>
-      <h3>Custom Website Design</h3>
-      <p>Concept-driven layouts designed from scratch for your brand.</p>
+<!-- HORIZONTAL SCROLL -->
+<section class="horizontal">
+  <div class="track">
+    <div class="panel">Design</div>
+    <div class="panel">Motion</div>
+    <div class="panel">WebGL</div>
+    <div class="panel">Performance</div>
+    <div class="panel">Maintenance</div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="cases">
+  <h2>Selected Work</h2>
+  <div class="case-grid">
+    <div class="case">
+      <div class="overlay">Brand Platform</div>
     </div>
-    <div class="offer-item">
-      <span>02</span>
-      <h3>Advanced Animations</h3>
-      <p>Scroll effects, motion systems, micro-interactions, and transitions.</p>
+    <div class="case">
+      <div class="overlay">Product Experience</div>
     </div>
-    <div class="offer-item">
-      <span>03</span>
-      <h3>Performance Hosting</h3>
-      <p>Fast, secure hosting optimized for speed and reliability.</p>
-    </div>
-    <div class="offer-item">
-      <span>04</span>
-      <h3>Ongoing Maintenance</h3>
-      <p>Updates, improvements, and long-term support.</p>
+    <div class="case">
+      <div class="overlay">Creative Studio</div>
     </div>
   </div>
 </section>
 
-<section class="philosophy">
-  <h2>
-    Your website is not a page.<br>
-    <span>It is an experience.</span>
-  </h2>
-</section>
-
+<!-- CONTACT -->
 <section id="contact" class="contact">
   <h2>Let’s build something unreal.</h2>
-  <p>Tell us about your idea.</p>
-
   <form>
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Project details"></textarea>
-    <button type="submit">Get in Touch</button>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Tell us about your project"></textarea>
+    <button class="magnetic">Get in touch</button>
   </form>
 </section>
 
-<footer>
-  <p>© APWEB • Digital Experiences</p>
-</footer>
+<footer>© APWEB</footer>
 
 <script src="script.js"></script>
 </body>
