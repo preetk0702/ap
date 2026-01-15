@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>apweb.tech | Custom Websites That Convert</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>apweb.tech | Crafted Websites That Perform</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#070b16;
-  --bg2:#0e1426;
-  --card:rgba(255,255,255,.08);
+  --bg:#060914;
+  --panel:#0d1224;
   --accent:#6cf2c2;
   --accent2:#5b8cff;
   --text:#eef1f7;
-  --muted:#a3acc7;
+  --muted:#98a2c0;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 
 html{scroll-behavior:smooth}
-
 body{
-  background:
-    radial-gradient(1200px 600px at 10% -10%,rgba(108,242,194,.15),transparent),
-    radial-gradient(900px 500px at 90% 10%,rgba(91,140,255,.18),transparent),
-    linear-gradient(180deg,var(--bg),var(--bg2));
   color:var(--text);
+  background:#060914;
   overflow-x:hidden;
+}
+
+/* ANIMATED BACKGROUND */
+.bg-mesh{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(800px 600px at 10% 10%,rgba(108,242,194,.18),transparent),
+    radial-gradient(700px 500px at 90% 20%,rgba(91,140,255,.2),transparent),
+    radial-gradient(600px 600px at 50% 90%,rgba(108,242,194,.12),transparent);
+  animation: drift 18s linear infinite;
+}
+
+@keyframes drift{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-40px)}
+  100%{transform:translateY(0)}
 }
 
 /* NAV */
 nav{
   position:fixed;
-  top:0;
   width:100%;
+  top:0;
   padding:18px 6%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  backdrop-filter:blur(14px);
-  background:rgba(7,11,22,.65);
+  backdrop-filter:blur(16px);
+  background:rgba(6,9,20,.65);
   border-bottom:1px solid rgba(255,255,255,.06);
   z-index:1000;
 }
@@ -54,44 +67,57 @@ nav{
 }
 
 .logo-badge{
-  width:40px;height:40px;
+  width:42px;height:42px;
   border-radius:12px;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   display:grid;
   place-items:center;
-  color:#070b16;
+  color:#060914;
   font-weight:900;
-  animation:pulse 3.5s infinite;
+  position:relative;
 }
 
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 0 rgba(108,242,194,.0)}
-  50%{box-shadow:0 0 35px rgba(108,242,194,.35)}
+.logo-badge::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:16px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  filter:blur(18px);
+  opacity:.4;
+  z-index:-1;
 }
 
 nav a{
   color:var(--text);
   text-decoration:none;
   margin-left:26px;
+  opacity:.8;
   font-weight:500;
-  opacity:.85;
 }
 
 nav a:hover{opacity:1;color:var(--accent)}
 
 /* HERO */
 .hero{
-  padding:130px 6% 70px;
+  min-height:100vh;
+  padding:140px 6% 90px;
   display:grid;
   grid-template-columns:1.15fr .85fr;
-  gap:70px;
+  gap:80px;
   align-items:center;
 }
 
 .hero h1{
-  font-size:clamp(2.6rem,4.8vw,4.3rem);
+  font-size:clamp(2.8rem,4.8vw,4.4rem);
   font-weight:900;
   line-height:1.05;
+  animation: reveal .9s ease forwards;
+}
+
+@keyframes reveal{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
 }
 
 .hero h1 span{
@@ -101,117 +127,106 @@ nav a:hover{opacity:1;color:var(--accent)}
 }
 
 .hero p{
-  margin-top:18px;
-  color:var(--muted);
+  margin-top:22px;
   max-width:520px;
+  color:var(--muted);
   line-height:1.6;
-}
-
-.hero ul{
-  margin-top:24px;
-  list-style:none;
-}
-
-.hero li{
-  margin-bottom:10px;
-  color:#dfe4f5;
+  animation: reveal 1.1s ease forwards;
 }
 
 .btn{
-  margin-top:34px;
-  padding:16px 30px;
+  margin-top:36px;
+  padding:16px 32px;
   border-radius:14px;
-  font-weight:800;
   border:none;
-  cursor:pointer;
+  font-weight:800;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#070b16;
+  color:#060914;
+  cursor:pointer;
   transition:.25s;
 }
 
-.btn:hover{transform:translateY(-3px) scale(1.03)}
+.btn:hover{transform:translateY(-4px) scale(1.03)}
 
-/* MOCKUP */
+/* SHOWCASE MOCKUP */
 .mockup{
-  position:relative;
-  padding:26px;
+  padding:28px;
   border-radius:22px;
-  background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.03));
+  background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.04));
   backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.2);
-  animation:float 6s ease-in-out infinite;
+  border:1px solid rgba(255,255,255,.18);
+  animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-16px)}
+  50%{transform:translateY(-18px)}
 }
 
 .browser{
   height:280px;
   border-radius:14px;
   background:
-    linear-gradient(135deg,rgba(108,242,194,.35),rgba(91,140,255,.35));
+    linear-gradient(135deg,rgba(108,242,194,.4),rgba(91,140,255,.4));
   display:grid;
   place-items:center;
   font-weight:900;
-  color:#070b16;
-  text-align:center;
+  color:#060914;
 }
 
 /* SECTIONS */
-section{padding:70px 6%}
+section{padding:90px 6%}
 
 h2{
-  font-size:2.5rem;
+  font-size:2.6rem;
   font-weight:900;
 }
 
 .sub{
-  margin-top:14px;
+  margin-top:16px;
   color:var(--muted);
-  max-width:620px;
+  max-width:640px;
 }
 
+/* CAPABILITY GRID */
 .grid{
-  margin-top:46px;
+  margin-top:50px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
+  gap:28px;
 }
 
 .card{
-  padding:34px;
-  border-radius:20px;
-  background:var(--card);
-  border:1px solid rgba(255,255,255,.15);
-  backdrop-filter:blur(14px);
-  transition:.3s;
+  position:relative;
+  padding:36px;
+  border-radius:22px;
+  background:var(--panel);
+  border:1px solid rgba(255,255,255,.12);
+  overflow:hidden;
 }
 
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 30px 60px rgba(0,0,0,.55);
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(108,242,194,.15),transparent);
+  transform:translateX(-100%);
+  transition:.6s;
 }
 
-.card h3{margin-bottom:10px}
-
-/* FREE SAMPLE */
-.sample{
-  margin-top:30px;
-  padding:28px;
-  border-radius:20px;
-  background:
-    linear-gradient(135deg,rgba(108,242,194,.25),rgba(91,140,255,.25));
-  border:1px solid rgba(255,255,255,.25);
+.card:hover::before{
+  transform:translateX(100%);
 }
+
+.card h3{margin-bottom:12px}
+.card p{color:var(--muted);line-height:1.55}
 
 /* CONTACT */
 .contact{
-  margin-top:20px;
-  padding:60px;
-  border-radius:28px;
-  background:linear-gradient(160deg,rgba(91,140,255,.3),rgba(108,242,194,.3));
+  margin-top:40px;
+  padding:70px;
+  border-radius:30px;
+  background:linear-gradient(160deg,rgba(91,140,255,.25),rgba(108,242,194,.25));
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:50px;
@@ -223,7 +238,6 @@ input,textarea{
   border-radius:12px;
   border:none;
   margin-bottom:14px;
-  font-size:.95rem;
 }
 
 textarea{height:120px;resize:none}
@@ -242,6 +256,7 @@ footer{
 </head>
 
 <body>
+<div class="bg-mesh"></div>
 
 <nav>
   <div class="logo">
@@ -250,89 +265,59 @@ footer{
   </div>
   <div>
     <a href="#services">Services</a>
-    <a href="#process">Process</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <section class="hero">
   <div>
-    <h1>Custom websites that<br><span>actually bring customers</span></h1>
+    <h1>Websites built with<br><span>precision, motion, and intent</span></h1>
     <p>
-      We design and build high-end websites for real businesses. Not templates.
-      Not generic. Fast, animated, optimized, and built to convert.
+      We design and engineer custom websites that look expensive, feel smooth,
+      and are built to convert. Every interaction is intentional.
     </p>
-
-    <ul>
-      <li>• Custom design and motion</li>
-      <li>• SEO and performance optimized</li>
-      <li>• Hosting and maintenance included</li>
-      <li>• Free custom sample site before you commit</li>
-    </ul>
-
     <a href="#contact"><button class="btn">Get a Free Quote</button></a>
   </div>
 
   <div class="mockup">
     <div class="browser">
-      YOUR BUSINESS<br>BUILT PROPERLY
+      LIVE INTERACTIONS<br>REAL PERFORMANCE
     </div>
   </div>
 </section>
 
 <section id="services">
-  <h2>What We Do</h2>
-  <p class="sub">
-    Every project is designed from scratch to stand out and outperform competitors.
-  </p>
+  <h2>What We Build</h2>
+  <p class="sub">Not templates. Hand-crafted interfaces that demonstrate capability.</p>
 
   <div class="grid">
-    <div class="card"><h3>Custom Web Design</h3><p>Unique layouts, branding, animations, and interactions.</p></div>
-    <div class="card"><h3>Hosting & Maintenance</h3><p>Fast, secure hosting with updates and support.</p></div>
-    <div class="card"><h3>SEO & Speed</h3><p>Clean code and structure that ranks and loads fast.</p></div>
-    <div class="card"><h3>Unlimited Features</h3><p>Anything you want built exactly how you want it.</p></div>
-  </div>
-
-  <div class="sample">
-    <h3>Free Custom Sample Website</h3>
-    <p>
-      Before you commit, we build a **free custom demo page** tailored to your business
-      so you can see exactly what we can do.
-    </p>
-  </div>
-</section>
-
-<section id="process">
-  <h2>How We Work</h2>
-  <div class="grid">
-    <div class="card"><h3>Understand</h3><p>Your goals, brand, and customers.</p></div>
-    <div class="card"><h3>Design</h3><p>Layouts and motion that feel premium.</p></div>
-    <div class="card"><h3>Build</h3><p>Clean, scalable, optimized code.</p></div>
-    <div class="card"><h3>Grow</h3><p>Hosting, improvements, and long-term support.</p></div>
+    <div class="card"><h3>Advanced UI Motion</h3><p>Micro-interactions and transitions that feel premium.</p></div>
+    <div class="card"><h3>High-Performance Builds</h3><p>Optimized structure, fast load, clean code.</p></div>
+    <div class="card"><h3>Custom Layout Systems</h3><p>Unique designs tailored to each brand.</p></div>
+    <div class="card"><h3>Anything You Imagine</h3><p>Dashboards, e-commerce, animations, integrations.</p></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="contact">
     <div>
-      <h2>Get Your Free Quote</h2>
+      <h2>Free Custom Sample</h2>
       <p class="sub">
-        Tell us about your business. We will build a free custom sample
-        so you can see the value before paying anything.
+        Before you commit, we build a free custom demo page
+        so you can see our capability first.
       </p>
     </div>
-
     <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <textarea placeholder="What do you want to build?"></textarea>
-      <button class="btn" type="submit">Request Free Sample</button>
+      <input placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Describe your project"></textarea>
+      <button class="btn" type="submit">Request Sample</button>
     </form>
   </div>
 </section>
 
 <footer>
-  © 2026 apweb.tech • Custom Web Design • Hosting • Growth
+  © 2026 apweb.tech • Crafted Web Experiences
 </footer>
 
 </body>
