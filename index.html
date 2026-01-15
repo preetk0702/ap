@@ -25,45 +25,6 @@ body{
   overflow-x:hidden;
 }
 
-/* NETWORK BACKGROUND */
-canvas{
-  position:fixed;
-  inset:0;
-  z-index:-3;
-}
-
-/* CURSOR GLOW */
-.cursor-glow{
-  position:fixed;
-  width:420px;
-  height:420px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(108,242,194,.18),transparent 60%);
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  z-index:-2;
-}
-
-/* HOSTED BADGE */
-.hosted-badge{
-  position:fixed;
-  bottom:22px;
-  right:22px;
-  padding:10px 16px;
-  border-radius:20px;
-  background:rgba(11,16,32,.8);
-  border:1px solid rgba(255,255,255,.15);
-  font-size:.85rem;
-  backdrop-filter:blur(12px);
-  animation:pulse 4s ease-in-out infinite;
-  z-index:50;
-}
-
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 0 rgba(108,242,194,0)}
-  50%{box-shadow:0 0 25px rgba(108,242,194,.35)}
-}
-
 /* NAV */
 nav{
   position:fixed;
@@ -74,7 +35,7 @@ nav{
   justify-content:space-between;
   align-items:center;
   backdrop-filter:blur(16px);
-  background:rgba(5,8,17,.65);
+  background:rgba(5,8,17,.7);
   border-bottom:1px solid rgba(255,255,255,.06);
   z-index:1000;
 }
@@ -95,24 +56,6 @@ nav{
   place-items:center;
   color:#050811;
   font-weight:900;
-  animation:spin 22s linear infinite;
-  position:relative;
-}
-
-.logo-symbol::before{
-  content:"";
-  position:absolute;
-  inset:-10px;
-  border-radius:18px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  filter:blur(22px);
-  opacity:.35;
-  z-index:-1;
-}
-
-@keyframes spin{
-  from{transform:rotate(0deg)}
-  to{transform:rotate(360deg)}
 }
 
 nav a{
@@ -125,16 +68,94 @@ nav a:hover{opacity:1;color:var(--accent)}
 
 /* SECTIONS */
 section{padding:120px 6%}
-.reveal{opacity:0;transform:translateY(40px);transition:.9s ease}
-.reveal.active{opacity:1;transform:none}
+h1{
+  font-size:clamp(3rem,5vw,4.5rem);
+  font-weight:900;
+  line-height:1.05;
+}
+h1 span{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+h2{
+  font-size:2.6rem;
+  font-weight:900;
+}
+.sub{
+  margin-top:16px;
+  max-width:760px;
+  color:var(--muted);
+  line-height:1.6;
+}
 
 /* HERO */
 .hero{
   min-height:100vh;
   display:grid;
   grid-template-columns:1.2fr .8fr;
-  gap:90px;
+  gap:80px;
   align-items:center;
+}
+
+/* BROWSER MOCKUP */
+.browser-window{
+  border-radius:26px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.06);
+  overflow:hidden;
+}
+.browser-top{
+  height:44px;
+  background:rgba(5,8,17,.85);
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  gap:10px;
+}
+.browser-dots span{
+  width:10px;height:10px;border-radius:50%;
+  background:#ff5f57;
+  display:inline-block;
+}
+.browser-dots span:nth-child(2){background:#febc2e}
+.browser-dots span:nth-child(3){background:#28c840}
+.browser-content{
+  padding:36px;
+  text-align:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#050811;
+}
+.browser-content h3{
+  font-size:1.8rem;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:30px;
+  padding:16px 34px;
+  border-radius:14px;
+  border:none;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#050811;
+  cursor:pointer;
+}
+
+/* SERVICES */
+.grid{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  padding:36px;
+  border-radius:22px;
+  background:var(--panel);
+  border:1px solid rgba(255,255,255,.12);
 }
 
 /* PORTFOLIO */
@@ -192,6 +213,26 @@ section{padding:120px 6%}
   transform:translateY(-12px);
 }
 
+/* CONTACT */
+.contact-box{
+  margin-top:70px;
+  padding:80px;
+  border-radius:36px;
+  background:linear-gradient(160deg,rgba(91,140,255,.25),rgba(108,242,194,.25));
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+}
+input,textarea{
+  width:100%;
+  padding:16px;
+  border-radius:12px;
+  border:none;
+  margin-bottom:14px;
+}
+textarea{height:120px}
+
+/* FOOTER */
 footer{
   padding:40px 6%;
   text-align:center;
@@ -199,20 +240,15 @@ footer{
 }
 
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr}
+  .hero,.contact-box{grid-template-columns:1fr}
 }
-  /* FAILSAFE: never hide content if JS fails */
-.reveal{
-  opacity:1 !important;
-  transform:none !important;
-}
+
+/* FAILSAFE */
+.reveal{opacity:1 !important;transform:none !important;}
 </style>
 </head>
 
 <body>
-
-<div class="cursor-glow" id="glow"></div>
-<div class="hosted-badge">Hosted by apweb.tech</div>
 
 <nav>
   <div class="logo">
@@ -225,7 +261,42 @@ footer{
   </div>
 </nav>
 
-<section id="work" class="reveal">
+<section class="hero">
+  <div>
+    <h1>Websites that help<br><span>service businesses get chosen</span></h1>
+    <p class="sub">
+      We design, host, and maintain custom websites that build trust
+      and convert visitors into real customers.
+    </p>
+    <a href="#contact"><button class="btn">Contact Us</button></a>
+  </div>
+
+  <div class="browser-window">
+    <div class="browser-top">
+      <div class="browser-dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="browser-content">
+      <h3>CLEAN • FAST • TRUSTED</h3>
+      <p>Designed to turn visitors into customers</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <h2>What We Do</h2>
+  <p class="sub">Clear, fast, professional websites fully managed long-term.</p>
+
+  <div class="grid">
+    <div class="card"><h3>Custom Design</h3><p>Built around your services.</p></div>
+    <div class="card"><h3>Mobile First</h3><p>Optimized for phones.</p></div>
+    <div class="card"><h3>Hosting & Maintenance</h3><p>Fast, secure, managed.</p></div>
+    <div class="card"><h3>Performance</h3><p>Built to load fast.</p></div>
+  </div>
+</section>
+
+<section id="work">
   <h2>Selected Work</h2>
   <p class="sub">Examples of real service-based websites.</p>
 
@@ -241,9 +312,29 @@ footer{
     </div>
 
     <div class="project">
-      <img src="cleaner-1.png" alt="Dry cleaning website">
+      <img src="cleaner-1.png" alt="Dry Cleaning website">
       <span>Dry Cleaning Service</span>
     </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-box">
+    <div>
+      <h2>Contact Us</h2>
+      <p class="sub">
+        Tell us about your business.<br><br>
+        We’ll build a <strong>free custom sample website</strong>
+        before you commit.
+      </p>
+    </div>
+
+    <form action="mailto:noemail@gmail.com" method="POST" enctype="text/plain">
+      <input name="name" placeholder="Your Name" required>
+      <input name="email" type="email" placeholder="Email Address" required>
+      <textarea name="message" placeholder="Describe your business"></textarea>
+      <button class="btn" type="submit">Request Free Sample</button>
+    </form>
   </div>
 </section>
 
