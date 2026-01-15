@@ -332,16 +332,60 @@ input,textarea{
 }
 textarea{height:130px;resize:none}
 
+/* FOOTER BANNER */
 footer{
-  padding:40px 6%;
+  background:var(--panel);
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:60px 6% 30px;
+  color:var(--text);
+}
+
+.footer-content{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:50px;
+  margin-bottom:40px;
+}
+
+.footer-section h3{
+  font-size:1.1rem;
+  font-weight:800;
+  margin-bottom:16px;
+  color:var(--accent);
+}
+
+.footer-section p,
+.footer-section a{
+  color:var(--muted);
+  line-height:1.8;
+  text-decoration:none;
+  display:block;
+  margin-bottom:8px;
+}
+
+.footer-section a:hover{
+  color:var(--accent);
+}
+
+.footer-email{
+  color:var(--accent);
+  font-weight:600;
+}
+
+.footer-bottom{
+  padding-top:30px;
+  border-top:1px solid rgba(255,255,255,.08);
   text-align:center;
   color:var(--muted);
+  font-size:.9rem;
 }
 
 @media(max-width:900px){
   .hero,.contact-box{grid-template-columns:1fr}
   nav{padding:18px 4%}
   nav a{margin-left:10px;font-size:.85rem}
+  .footer-content{grid-template-columns:1fr;gap:35px}
+  footer{padding:50px 4% 25px}
 }
 </style>
 </head>
@@ -452,7 +496,38 @@ footer{
 </section>
 
 <footer>
-  © 2026 apweb.tech • Custom Web Design, Hosting & Maintenance
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>apweb.tech</h3>
+      <p>Custom websites for service businesses. We design, host, and maintain professional websites that help you get chosen by customers.</p>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Services</h3>
+      <a href="#services">Custom Website Design</a>
+      <a href="#services">Mobile-First Development</a>
+      <a href="#services">Hosting & Maintenance</a>
+      <a href="#services">Performance Optimization</a>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Company</h3>
+      <a href="#work">Our Work</a>
+      <a href="#services">What We Do</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Get In Touch</h3>
+      <p>Ready to get started?</p>
+      <p class="footer-email">contact@apweb.tech</p>
+      <p>We build free custom samples before you commit.</p>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    © 2026 apweb.tech • Custom Web Design, Hosting & Maintenance • All Rights Reserved
+  </div>
 </footer>
 
 <script>
