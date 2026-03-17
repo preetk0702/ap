@@ -89,12 +89,6 @@ nav{
   font-weight:900;
 }
 
-.logo-image{
-  height:46px;
-  width:auto;
-  border-radius:12px;
-}
-
 .logo-symbol{
   width:46px;
   height:46px;
@@ -267,21 +261,23 @@ h2{
   border:1px solid rgba(255,255,255,.12);
 }
 
-/* PORTFOLIO */
+/* PORTFOLIO - UPDATED TO RECTANGLE */
 .portfolio{
   margin-top:70px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
   gap:34px;
+  max-width: 1400px; /* Prevents extreme stretching on wide screens */
 }
 
 .project{
-  aspect-ratio:1;
+  aspect-ratio: 16 / 9; /* Changed from 1 to 16/9 to prevent cropping */
   border-radius:24px;
   position:relative;
   overflow:hidden;
   cursor:pointer;
   transition:transform .3s ease,box-shadow .3s ease;
+  background: var(--panel);
 }
 
 .project:hover{
@@ -299,10 +295,6 @@ h2{
 .project:hover img{
   transform:scale(1.1);
 }
-
-.project.barber{background:linear-gradient(135deg,#6cf2c2,#3aa98f)}
-.project.barber2{background:linear-gradient(135deg,#5b8cff,#3b5bd6)}
-.project.cleaner{background:linear-gradient(135deg,#9aa4bf,#d7dbe6)}
 
 .project span{
   position:absolute;
@@ -408,7 +400,7 @@ footer{
 <nav>
   <div class="logo">
     <div class="logo-symbol">AP</div>
-    <img src="logo.jpg" alt="apweb.tech logo" class="logo-image">
+    <span style="font-weight:900; margin-left: 10px;">apweb.tech</span>
   </div>
   <div>
     <a href="#services">Services</a>
@@ -458,18 +450,18 @@ footer{
 <div class="portfolio">
 
   <div class="project">
-    <img src="barber-1.png" alt="Barbershop website design">
+    <img src="barber.png" alt="Barbershop website design">
     <span>Barbershop Website</span>
   </div>
 
   <div class="project">
-    <img src="barber-2.png" alt="Barbershop website design">
-    <span>Barbershop Website</span>
+    <img src="car.png" alt="Car dealer website design">
+    <span>Car Dealership Website</span>
   </div>
 
   <div class="project">
-    <img src="cleaner-1.png" alt="Dry cleaning website design">
-    <span>Dry Cleaning Service</span>
+    <img src="phonerepair.png" alt="Phone repair website design">
+    <span>Phone Repair Shop</span>
   </div>
 
 </div>
