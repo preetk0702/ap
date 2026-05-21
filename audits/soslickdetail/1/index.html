@@ -20,8 +20,15 @@
     --red: #D04444;
     --shadow: 0 12px 40px rgba(46, 126, 120, 0.18);
   }
+
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; height: 100%; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                  "Helvetica Neue", Arial, sans-serif;
@@ -42,6 +49,7 @@
     z-index: 100;
     border-bottom: 2px solid var(--teal-light);
   }
+
   header.top .brand {
     display: flex; align-items: center; gap: 10px;
     color: white;
@@ -49,6 +57,7 @@
     letter-spacing: 0.5px;
     font-size: 14px;
   }
+
   header.top .brand .mark {
     width: 28px; height: 28px;
     border: 2px solid var(--teal-light);
@@ -56,11 +65,13 @@
     position: relative;
     flex-shrink: 0;
   }
+
   header.top .brand .mark::before {
     content: ""; position: absolute;
     top: 5px; left: 3px; right: 3px; height: 2px;
     background: var(--teal-light);
   }
+
   header.top .brand .mark::after {
     content: ""; position: absolute;
     bottom: 3px; right: 3px;
@@ -69,6 +80,7 @@
     border-radius: 2px;
     background: var(--teal-dark);
   }
+
   header.top .meta {
     color: var(--teal-light);
     font-size: 12px;
@@ -82,6 +94,7 @@
     display: flex; align-items: center; justify-content: center;
     padding-bottom: 40px;
   }
+
   .gate {
     background: white;
     border-radius: 18px;
@@ -90,6 +103,7 @@
     padding: 40px 36px 32px;
     text-align: center;
   }
+
   .gate .logo-icon {
     width: 72px; height: 72px;
     margin: 0 auto 18px;
@@ -97,11 +111,13 @@
     border-radius: 12px;
     position: relative;
   }
+
   .gate .logo-icon::before {
     content: ""; position: absolute;
     top: 10px; left: 8px; right: 8px; height: 3px;
     background: var(--teal);
   }
+
   .gate .logo-icon::after {
     content: ""; position: absolute;
     bottom: 8px; right: 6px;
@@ -110,6 +126,7 @@
     border-radius: 5px;
     background: white;
   }
+
   .gate .eyebrow {
     font-size: 11px;
     letter-spacing: 2px;
@@ -118,21 +135,25 @@
     text-transform: uppercase;
     margin-bottom: 8px;
   }
+
   .gate h1 {
     margin: 0 0 6px;
     font-size: 24px;
     color: var(--ink);
     letter-spacing: -0.3px;
   }
+
   .gate .sub {
     color: var(--grey);
     font-size: 14px;
     margin-bottom: 28px;
     line-height: 1.5;
   }
+
   .gate form {
     display: flex; flex-direction: column; gap: 12px;
   }
+
   .gate label {
     text-align: left;
     font-size: 12px;
@@ -141,6 +162,7 @@
     text-transform: uppercase;
     letter-spacing: 0.6px;
   }
+
   .gate input[type="password"] {
     width: 100%;
     padding: 14px 16px;
@@ -152,12 +174,14 @@
     transition: border-color 0.15s, background 0.15s;
     font-family: inherit;
   }
+
   .gate input[type="password"]:focus {
     outline: none;
     border-color: var(--teal);
     background: white;
     box-shadow: 0 0 0 4px rgba(61, 155, 146, 0.12);
   }
+
   .gate button {
     margin-top: 6px;
     padding: 14px;
@@ -172,8 +196,10 @@
     transition: background 0.15s, transform 0.05s;
     font-family: inherit;
   }
+
   .gate button:hover { background: var(--teal); }
   .gate button:active { transform: translateY(1px); }
+
   .gate .err {
     color: var(--red);
     font-size: 13px;
@@ -182,6 +208,7 @@
     min-height: 18px;
     font-weight: 500;
   }
+
   .gate .foot {
     margin-top: 22px;
     font-size: 12px;
@@ -189,12 +216,19 @@
     border-top: 1px solid var(--grey-light);
     padding-top: 16px;
   }
-  .gate .foot a { color: var(--teal-dark); text-decoration: none; font-weight: 600; }
+
+  .gate .foot a {
+    color: var(--teal-dark);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
   .gate .foot a:hover { text-decoration: underline; }
 
   /* ============ Viewer ============ */
   .viewer { display: none; }
   .viewer.active { display: block; }
+
   .viewer-bar {
     position: fixed;
     top: 56px; left: 0; right: 0;
@@ -205,7 +239,12 @@
     padding: 0 24px;
     z-index: 90;
   }
-  .viewer-bar .title-block { display: flex; flex-direction: column; }
+
+  .viewer-bar .title-block {
+    display: flex;
+    flex-direction: column;
+  }
+
   .viewer-bar .title-block .t-eyebrow {
     font-size: 10px;
     letter-spacing: 1.4px;
@@ -213,14 +252,21 @@
     color: var(--teal);
     font-weight: 700;
   }
+
   .viewer-bar .title-block .t-title {
     font-size: 15px;
     font-weight: 700;
     color: var(--ink);
     line-height: 1.2;
   }
-  .viewer-bar .actions { display: flex; gap: 10px; }
-  .viewer-bar .actions a, .viewer-bar .actions button {
+
+  .viewer-bar .actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .viewer-bar .actions a,
+  .viewer-bar .actions button {
     text-decoration: none;
     background: var(--bg);
     color: var(--ink-soft);
@@ -233,26 +279,38 @@
     transition: background 0.15s, border-color 0.15s;
     font-family: inherit;
   }
-  .viewer-bar .actions a:hover, .viewer-bar .actions button:hover {
+
+  .viewer-bar .actions a:hover,
+  .viewer-bar .actions button:hover {
     background: var(--teal-tint);
     border-color: var(--teal-light);
   }
+
   .viewer-bar .actions .primary {
     background: var(--teal-dark);
     color: white;
     border-color: var(--teal-dark);
   }
+
   .viewer-bar .actions .primary:hover {
     background: var(--teal);
     border-color: var(--teal);
   }
+
   .frame-wrap {
     position: fixed;
-    top: 112px; left: 0; right: 0; bottom: 0;
+    top: 112px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: #2A2A2A;
     padding: 16px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
-  .frame-wrap iframe {
+
+  .frame-wrap object,
+  .frame-wrap embed {
     width: 100%;
     height: 100%;
     border: 0;
@@ -260,12 +318,14 @@
     background: white;
     box-shadow: 0 8px 30px rgba(0,0,0,0.4);
   }
+
   .frame-fallback {
     display: none;
     color: white;
     text-align: center;
     padding: 60px 20px;
   }
+
   .frame-fallback a {
     color: var(--teal-light);
     font-weight: 700;
@@ -273,11 +333,41 @@
 
   /* small screens */
   @media (max-width: 640px) {
-    .viewer-bar { padding: 0 14px; height: 64px; }
-    .viewer-bar .title-block .t-title { font-size: 13px; }
-    .viewer-bar .actions a, .viewer-bar .actions button { padding: 7px 10px; font-size: 12px; }
-    .frame-wrap { top: 120px; padding: 8px; }
-    .gate { padding: 32px 24px 24px; }
+    .viewer-bar {
+      padding: 0 14px;
+      height: 64px;
+    }
+
+    .viewer-bar .title-block .t-title {
+      font-size: 13px;
+    }
+
+    .viewer-bar .actions a,
+    .viewer-bar .actions button {
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+
+    .frame-wrap {
+      top: 120px;
+      padding: 0;
+      background: white;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .frame-wrap object,
+    .frame-wrap embed {
+      width: 100%;
+      height: calc(100vh - 120px);
+      min-height: calc(100vh - 120px);
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .gate {
+      padding: 32px 24px 24px;
+    }
   }
 </style>
 </head>
@@ -327,12 +417,29 @@
       <a class="primary" href="audit.pdf" target="_blank" rel="noopener">Open in New Tab</a>
     </div>
   </div>
+
   <div class="frame-wrap">
-    <iframe id="pdfFrame" title="So Slick Detail SEO & GEO Audit"></iframe>
-    <div class="frame-fallback" id="fallback">
-      <p>Your browser cannot display the PDF inline.</p>
-      <p><a href="audit.pdf" target="_blank" rel="noopener">Open the report in a new tab.</a></p>
-    </div>
+    <object
+      id="pdfViewer"
+      data=""
+      type="application/pdf"
+      title="So Slick Detail SEO & GEO Audit"
+    >
+      <embed
+        id="pdfEmbed"
+        src=""
+        type="application/pdf"
+      />
+
+      <div class="frame-fallback" id="fallback">
+        <p>Your browser cannot display the PDF inline.</p>
+        <p>
+          <a href="audit.pdf" target="_blank" rel="noopener">
+            Open the report in a new tab.
+          </a>
+        </p>
+      </div>
+    </object>
   </div>
 </div>
 
@@ -352,27 +459,34 @@
 
   function unlock() {
     document.getElementById("gateWrap").style.display = "none";
+
     const viewer = document.getElementById("viewer");
     viewer.classList.add("active");
-    const frame = document.getElementById("pdfFrame");
-    // Use #toolbar=1&view=FitH to give a clean default
-    frame.src = PDF_PATH + "#view=FitH";
+
+    const pdfViewer = document.getElementById("pdfViewer");
+    const pdfEmbed = document.getElementById("pdfEmbed");
+
+    pdfViewer.data = PDF_PATH + "#view=FitH";
+    pdfEmbed.src = PDF_PATH + "#view=FitH";
+
     // Persist for this session so reloads don't re-prompt
-    try { sessionStorage.setItem("apweb_audit_unlocked", "1"); } catch (e) {}
-    // Fallback if iframe fails
-    frame.addEventListener("error", () => {
-      frame.style.display = "none";
-      document.getElementById("fallback").style.display = "block";
-    });
+    try {
+      sessionStorage.setItem("apweb_audit_unlocked", "1");
+    } catch (e) {}
   }
 
   document.getElementById("gateForm").addEventListener("submit", async (e) => {
     e.preventDefault();
+
     const pw = document.getElementById("pw").value;
     const err = document.getElementById("err");
+
     err.textContent = "";
+
     if (!pw) return;
+
     const h = await sha256(pw);
+
     if (h === PASSWORD_HASH) {
       unlock();
     } else {
