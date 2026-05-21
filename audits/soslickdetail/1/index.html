@@ -205,6 +205,8 @@
   /* ============ Viewer ============ */
   .viewer { display: none; }
   .viewer.active { display: block; }
+  
+  /* Desktop layout bar */
   .viewer-bar {
     position: fixed;
     top: 56px; left: 0; right: 0;
@@ -256,6 +258,8 @@
     background: var(--teal);
     border-color: var(--teal);
   }
+  
+  /* Standard Desktop Desktop Frame Wrapper */
   .frame-wrap {
     position: fixed;
     top: 112px; left: 0; right: 0; bottom: 0;
@@ -281,12 +285,91 @@
     font-weight: 700;
   }
 
-  /* small screens */
+  /* ============ High-End Apple Style Mobile View Overlay ============ */
+  .mobile-pdf-container {
+    display: none; /* Hidden by default on desktop, shown via JS on mobile */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 24px;
+    position: fixed;
+    top: 56px; left: 0; right: 0; bottom: 0;
+    background: #F5F8F8;
+    z-index: 95;
+  }
+  .mobile-card {
+    background: white;
+    width: 100%;
+    max-width: 360px;
+    padding: 40px 24px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pdf-icon {
+    width: 80px;
+    height: 100px;
+    background: #FF4A4A;
+    border-radius: 8px;
+    position: relative;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 20px rgba(255, 74, 74, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pdf-icon::before {
+    content: "PDF";
+    color: white;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+  .pdf-icon-fold {
+    position: absolute;
+    top: 0; right: 0;
+    width: 25px; height: 25px;
+    background: linear-gradient(135deg, #F5F8F8 50%, rgba(0,0,0,0.15) 50%);
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 8px;
+  }
+  .mobile-card h2 {
+    font-size: 18px;
+    color: var(--ink);
+    margin: 0 0 4px 0;
+    font-weight: 700;
+  }
+  .mobile-card .meta-info {
+    font-size: 12px;
+    color: var(--grey);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .mobile-primary-btn {
+    display: block;
+    width: 100%;
+    background: var(--teal-dark);
+    color: white !important;
+    text-decoration: none;
+    text-align: center;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 6px 20px rgba(46, 126, 120, 0.25);
+    transition: background 0.15s;
+  }
+  .mobile-primary-btn:active {
+    background: var(--teal);
+  }
+
+  /* small screens breakpoint handling layout rules */
   @media (max-width: 640px) {
-    .viewer-bar { padding: 0 14px; height: 64px; }
-    .viewer-bar .title-block .t-title { font-size: 13px; }
-    .viewer-bar .actions a, .viewer-bar .actions button { padding: 7px 10px; font-size: 12px; }
-    .frame-wrap { top: 120px; padding: 8px; }
+    .viewer-bar, .frame-wrap { display: none !important; }
     .gate { padding: 32px 24px 24px; }
   }
 </style>
@@ -298,7 +381,7 @@
     <span class="mark"></span>
     <span>AP WEB.TECH</span>
   </div>
-  <div class="meta">So Slick Audit Portal</div>
+  <div class="meta">Client Audit Portal</div>
 </header>
 
 <div class="gate-wrap" id="gateWrap">
@@ -325,7 +408,7 @@
 </div>
 
 <div class="viewer" id="viewer">
-  <div class="viewer-bar">
+  <div class="viewer-bar" id="desktopBar">
     <div class="title-block">
       <span class="t-eyebrow">Prepared for So Slick Detail LLC</span>
       <span class="t-title">SEO &amp; GEO Audit Report</span>
@@ -335,12 +418,23 @@
       <a class="primary" href="audit.pdf" target="_blank" rel="noopener">Open in New Tab</a>
     </div>
   </div>
-  <div class="frame-wrap">
+  <div class="frame-wrap" id="desktopFrame">
     <iframe id="pdfFrame" title="So Slick Detail SEO & GEO Audit"></iframe>
     <div class="frame-fallback" id="fallback">
       <p>Your browser cannot display the PDF inline.</p>
       <p><a href="audit.pdf" target="_blank" rel="noopener">Open the report in a new tab.</a></p>
     </div>
+  </div>
+</div>
+
+<div class="mobile-pdf-container" id="mobileViewer">
+  <div class="mobile-card">
+    <div class="pdf-icon">
+      <div class="pdf-icon-fold"></div>
+    </div>
+    <h2>SEO &amp; GEO Audit Report</h2>
+    <div class="meta-info">So Slick Detail LLC • Document Portal</div>
+    <a href="audit.pdf" class="mobile-primary-btn" id="mobileOpenLink">View Audit Report</a>
   </div>
 </div>
 
@@ -358,47 +452,47 @@
       .join("");
   }
 
+  function checkDeviceAndView() {
+    // Basic smart check for mobile screens or touch-based smartphones
+    const isMobileScreen = window.innerWidth <= 640 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    
+    const desktopBar = document.getElementById("desktopBar");
+    const desktopFrame = document.getElementById("desktopFrame");
+    const mobileViewer = document.getElementById("mobileViewer");
+    const frame = document.getElementById("pdfFrame");
+
+    if (isMobileScreen) {
+      // Deactivate the broken iframe wrapper entirely
+      if(desktopBar) desktopBar.style.display = "none";
+      if(desktopFrame) desktopFrame.style.display = "none";
+      
+      // Open the clean layout overlay view
+      mobileViewer.style.display = "flex";
+      
+      // iOS prefers direct browser links to launch its built-in full screen viewport engine smoothly
+      document.getElementById("mobileOpenLink").href = PDF_PATH;
+      document.getElementById("mobileOpenLink").target = "_blank";
+    } else {
+      // Desktop standard presentation
+      if(mobileViewer) mobileViewer.style.display = "none";
+      if(desktopBar) desktopBar.style.display = "flex";
+      if(desktopFrame) desktopFrame.style.display = "block";
+      
+      frame.src = PDF_PATH + "#view=FitH";
+      frame.addEventListener("error", () => {
+        frame.style.display = "none";
+        document.getElementById("fallback").style.display = "block";
+      });
+    }
+  }
+
   function unlock() {
     document.getElementById("gateWrap").style.display = "none";
     const viewer = document.getElementById("viewer");
     viewer.classList.add("active");
-    const frame = document.getElementById("pdfFrame");
-    // Use #toolbar=1&view=FitH to give a clean default
-    frame.src = PDF_PATH + "#view=FitH";
+    
+    // Evaluate display requirements for the file based on system criteria
+    checkDeviceAndView();
+    
     // Persist for this session so reloads don't re-prompt
-    try { sessionStorage.setItem("apweb_audit_unlocked", "1"); } catch (e) {}
-    // Fallback if iframe fails
-    frame.addEventListener("error", () => {
-      frame.style.display = "none";
-      document.getElementById("fallback").style.display = "block";
-    });
-  }
-
-  document.getElementById("gateForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const pw = document.getElementById("pw").value;
-    const err = document.getElementById("err");
-    err.textContent = "";
-    if (!pw) return;
-    const h = await sha256(pw);
-    if (h === PASSWORD_HASH) {
-      unlock();
-    } else {
-      err.textContent = "Incorrect password. Please try again or contact SEO@apweb.tech.";
-      document.getElementById("pw").select();
-    }
-  });
-
-  // Auto-unlock within the same browser session
-  try {
-    if (sessionStorage.getItem("apweb_audit_unlocked") === "1") {
-      unlock();
-    }
-  } catch (e) {}
-
-  // Block PDF path from being shown in document title
-  document.title = "So Slick Audit Portal";
-</script>
-
-</body>
-</html>
+    try { sessionStorage.setItem("apweb_audit_unlocked", "1"); } catch (e
