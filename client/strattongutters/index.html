@@ -1,1 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AP Web | Stratton Gutters – Client Portal</title>
+<link rel="icon" type="image/png" href="/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wucybia216");
+</script>
+<style>
+  :root{
+    --paper:#FAFAF8;--ink:#22383B;--slate:#406063;--slate-soft:#5A757A;
+    --teal:#6FB9AD;--teal-deep:#2F8A7A;--tint:#E9F1EF;--rule:#D3DEDC;
+    --red:#B04632;--green:#2F8A7A;
+    --display:'Anton',sans-serif;--body:'Work Sans',sans-serif;--mono:'IBM Plex Mono',monospace;
+    --header-h:62px;--bar-h:52px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--slate);color:var(--paper)}
 
+  /* ── Header ── */
+  header.site{
+    position:fixed;top:0;left:0;right:0;height:var(--header-h);z-index:200;
+    background:var(--slate);border-bottom:2px solid #557A7E;
+    display:flex;align-items:center;justify-content:space-between;padding:0 24px;
+  }
+  .logo{font-family:var(--display);font-size:19px;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px}
+  .logo img{width:30px;height:auto;border-radius:3px}
+  .header-meta{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+
+  /* ── Gate ── */
+  #gateWrap{
+    min-height:100vh;padding-top:var(--header-h);
+    background:var(--slate);
+    display:flex;align-items:center;justify-content:center;padding-bottom:40px;
+  }
+  .gate{
+    background:#fff;border:1px solid var(--rule);
+    box-shadow:8px 8px 0 rgba(111,185,173,.25);
+    width:min(460px,calc(100% - 32px));padding:40px 38px 32px;
+    font-family:var(--mono);position:relative;
+  }
+  .gate-head{
+    border-bottom:2px solid var(--slate);padding-bottom:14px;margin-bottom:22px;
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .gate-head strong{font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+  .gate-head span{font-size:11px;color:var(--slate-soft)}
+  .gate-stamp{
+    position:absolute;top:20px;right:-8px;transform:rotate(-8deg);
+    border:2.5px solid var(--teal-deep);color:var(--teal-deep);
+    font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    padding:5px 11px;border-radius:3px;background:rgba(250,250,248,.9);
+  }
+  .gate h1{font-family:var(--display);font-size:28px;text-transform:uppercase;font-weight:400;margin-bottom:6px}
+  .gate .sub{font-family:var(--body);font-size:15px;color:var(--slate-soft);margin-bottom:28px;line-height:1.6}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-soft);margin-bottom:7px}
+  .field input[type="password"]{
+    width:100%;border:1.5px solid var(--rule);background:var(--paper);
+    font-family:var(--body);font-size:16px;padding:13px 14px;color:var(--ink);
+    transition:border-color .15s,outline .15s;
+  }
+  .field input[type="password"]:focus{outline:2px solid var(--teal-deep);outline-offset:1px;border-color:var(--teal-deep)}
+  .err{color:var(--red);font-family:var(--mono);font-size:12px;margin-top:6px;min-height:18px;letter-spacing:.02em}
+  .gate button[type="submit"]{
+    width:100%;margin-top:10px;padding:15px;border:1.5px solid var(--slate);
+    background:var(--slate);color:#fff;font-family:var(--mono);font-size:13px;
+    font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+    transition:transform .12s,background .15s;
+  }
+  .gate button[type="submit"]:hover{transform:translateY(-2px)}
+  .gate-foot{
+    margin-top:22px;font-size:12px;color:var(--slate-soft);
+    border-top:1px dashed var(--rule);padding-top:16px;text-align:center;
+  }
+  .gate-foot a{color:var(--teal-deep);font-weight:600;text-decoration:none}
+  .gate-foot a:hover{text-decoration:underline}
+
+  /* ── Sub-bar (explorer + viewer) ── */
+  .sub-bar{
+    position:fixed;top:var(--header-h);left:0;right:0;height:var(--bar-h);z-index:150;
+    background:var(--paper);border-bottom:1px solid var(--rule);
+    display:flex;align-items:center;justify-content:space-between;padding:0 24px;
+    box-shadow:0 2px 8px rgba(34,56,59,.06);
+  }
+  .sub-bar .info .label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);font-weight:600}
+  .sub-bar .info .title{font-family:var(--body);font-size:15px;font-weight:700;color:var(--ink);line-height:1.2}
+  .sub-bar-right{display:flex;gap:8px;align-items:center}
+  .lock-btn,.back-btn{
+    font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    background:transparent;color:var(--slate-soft);border:1.5px solid var(--rule);
+    padding:7px 14px;cursor:pointer;transition:border-color .15s,color .15s,background .15s;
+  }
+  .lock-btn:hover,.back-btn:hover{border-color:var(--slate);color:var(--ink);background:var(--tint)}
+  .dl-btn{
+    font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    text-decoration:none;background:var(--slate);color:#fff;border:1.5px solid var(--slate);
+    padding:7px 14px;transition:transform .12s;
+  }
+  .dl-btn:hover{transform:translateY(-1px)}
+
+  /* ── Explorer body ── */
+  #explorer{display:none}
+  #explorer.active{display:block}
+  .exp-body{
+    padding-top:calc(var(--header-h) + var(--bar-h) + 28px);
+    padding-bottom:48px;min-height:100vh;background:var(--tint);
+  }
+  .exp-inner{max-width:880px;margin:0 auto;padding:0 20px}
+
+  .exp-loading{
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+    padding:80px 20px;color:var(--slate-soft);font-family:var(--mono);font-size:13px;letter-spacing:.08em;
+  }
+  .spinner{
+    width:32px;height:32px;border:2.5px solid var(--rule);
+    border-top-color:var(--teal-deep);border-radius:50%;animation:spin .7s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .file-table{background:#fff;border:1px solid var(--rule);box-shadow:4px 4px 0 rgba(111,185,173,.18)}
+  .file-header{
+    display:grid;grid-template-columns:1fr 100px 160px;
+    padding:11px 20px;background:var(--tint);border-bottom:2px solid var(--slate);
+    font-family:var(--mono);font-size:11px;font-weight:600;color:var(--slate);
+    text-transform:uppercase;letter-spacing:.1em;
+  }
+  .file-row{
+    display:grid;grid-template-columns:1fr 100px 160px;
+    padding:14px 20px;border-bottom:1px solid var(--tint);
+    align-items:center;transition:background .12s;
+  }
+  .file-row:last-child{border-bottom:none}
+  .file-row:hover{background:var(--tint)}
+  .file-name{display:flex;align-items:center;gap:12px;min-width:0}
+  .file-icon{font-size:20px;flex-shrink:0;line-height:1}
+  .file-text{min-width:0}
+  .fname{font-weight:600;font-size:14px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .fext{font-family:var(--mono);font-size:11px;color:var(--slate-soft);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+  .file-size{font-family:var(--mono);font-size:13px;color:var(--slate-soft)}
+  .file-actions{display:flex;gap:8px;justify-content:flex-end}
+  .btn-view,.btn-dl{
+    font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    text-decoration:none;border:1.5px solid var(--rule);padding:7px 12px;cursor:pointer;
+    background:transparent;transition:background .13s,color .13s,border-color .13s;
+  }
+  .btn-view{background:var(--slate);color:#fff;border-color:var(--slate)}
+  .btn-view:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .btn-dl:hover{background:var(--tint);border-color:var(--teal)}
+  .empty-state{padding:60px 20px;text-align:center;color:var(--slate-soft);font-size:15px}
+  .empty-state .big{font-size:40px;margin-bottom:12px}
+  .exp-error{
+    background:#fff;border:1px solid var(--rule);box-shadow:4px 4px 0 rgba(111,185,173,.18);
+    padding:36px;text-align:center;color:var(--slate-soft);font-size:14px;
+  }
+  .exp-error strong{color:var(--ink);display:block;margin-bottom:8px;font-size:16px;font-family:var(--display);text-transform:uppercase}
+
+  /* ── Viewer ── */
+  #viewer{display:none}
+  #viewer.active{display:block}
+  .frame-wrap{
+    position:fixed;top:calc(var(--header-h) + var(--bar-h));left:0;right:0;bottom:0;
+    background:#22383B;padding:16px;overflow:auto;-webkit-overflow-scrolling:touch;
+  }
+  .frame-wrap object,.frame-wrap embed,.frame-wrap img.inline-img{
+    width:100%;height:100%;border:0;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.4);display:block;
+  }
+  .frame-wrap img.inline-img{object-fit:contain;background:#1A2628}
+
+  /* ── Responsive ── */
+  @media(max-width:640px){
+    .file-header{grid-template-columns:1fr 110px}
+    .file-row{grid-template-columns:1fr 110px}
+    .file-size{display:none}
+    .file-header .h-size{display:none}
+    .sub-bar .info .title{max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .exp-inner{padding:0 12px}
+    .frame-wrap{padding:0;background:#fff}
+    .frame-wrap object,.frame-wrap embed{border-radius:0;box-shadow:none}
+    header.site{padding:0 16px}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="logo" href="/"><img src="/logo-icon.png" alt="AP Web logo"> apweb.tech</a>
+  <div class="header-meta" id="headerMeta">Client Portal</div>
+</header>
+
+<!-- Gate -->
+<div id="gateWrap">
+  <div class="gate">
+    <div class="gate-head">
+      <strong>Client Portal</strong>
+      <span>apweb.tech</span>
+    </div>
+    <div class="gate-stamp">Private</div>
+    <h1>Stratton Gutters</h1>
+    <p class="sub">Enter the access password provided by AP Web to view your files.</p>
+    <form id="gateForm" autocomplete="off">
+      <div class="field">
+        <label for="pw">Access password</label>
+        <input id="pw" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+      </div>
+      <div class="err" id="err" role="alert"></div>
+      <button type="submit">Unlock portal</button>
+    </form>
+    <div class="gate-foot">Questions? <a href="mailto:contact@apweb.tech">contact@apweb.tech</a></div>
+  </div>
+</div>
+
+<!-- Explorer -->
+<div id="explorer">
+  <div class="sub-bar">
+    <div class="info">
+      <div class="label">Client Files</div>
+      <div class="title" id="expTitle">Stratton Gutters</div>
+    </div>
+    <div class="sub-bar-right">
+      <button class="lock-btn" onclick="lockPortal()">Lock</button>
+    </div>
+  </div>
+  <div class="exp-body">
+    <div class="exp-inner" id="expInner">
+      <div class="exp-loading"><div class="spinner"></div><span>Loading your files&hellip;</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Viewer -->
+<div id="viewer">
+  <div class="sub-bar">
+    <div class="info">
+      <div class="label">Viewing file</div>
+      <div class="title" id="viewerName"></div>
+    </div>
+    <div class="sub-bar-right">
+      <button class="back-btn" onclick="closeViewer()">Back to files</button>
+      <a class="dl-btn" id="viewerDl" href="#" download>Download</a>
+      <a class="dl-btn" id="viewerNew" href="#" target="_blank" rel="noopener">Open tab</a>
+    </div>
+  </div>
+  <div class="frame-wrap" id="frameWrap"></div>
+</div>
+
+<script>
+// ── Config ────────────────────────────────────────────────────────────────────
+const CFG = {
+  clientName:   "Stratton Gutters",
+  clientShort:  "strattongutters",
+  githubRepo:   "preetk0702/ap",
+  // SHA-256 of password. Current password: soslick26$
+  passwordHash: "b7875a64b963d2cb0015f89138a3e028812e3d1cdd8c660a0364eac068055934",
+  sessionKey:   "apweb_unlocked_strattongutters",
+};
+const GITHUB_API = `https://api.github.com/repos/${CFG.githubRepo}/contents/client/${CFG.clientShort}`;
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+async function sha256(text) {
+  const buf = new TextEncoder().encode(text);
+  const hash = await crypto.subtle.digest("SHA-256", buf);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+
+function fileIcon(name) {
+  const ext = name.split(".").pop().toLowerCase();
+  const map = {
+    pdf:"📄", png:"🖼️", jpg:"🖼️", jpeg:"🖼️", gif:"🖼️", webp:"🖼️", svg:"🖼️",
+    mp4:"🎬", mov:"🎬", avi:"🎬", mkv:"🎬",
+    mp3:"🎵", wav:"🎵", m4a:"🎵",
+    doc:"📝", docx:"📝", txt:"📝",
+    xls:"📊", xlsx:"📊", csv:"📊",
+    zip:"📦", rar:"📦", "7z":"📦",
+    ppt:"📋", pptx:"📋",
+  };
+  return map[ext] || "📎";
+}
+
+function fileLabel(name) {
+  const ext = name.split(".").pop().toLowerCase();
+  const labels = {
+    pdf:"PDF Document", png:"PNG Image", jpg:"JPEG Image", jpeg:"JPEG Image",
+    gif:"GIF Image", webp:"WebP Image", svg:"SVG Image",
+    mp4:"MP4 Video", mov:"QuickTime Video", doc:"Word Document", docx:"Word Document",
+    xls:"Excel Spreadsheet", xlsx:"Excel Spreadsheet", csv:"CSV Spreadsheet",
+    ppt:"PowerPoint", pptx:"PowerPoint", zip:"ZIP Archive", txt:"Text File",
+  };
+  return labels[ext] || ext.toUpperCase() + " File";
+}
+
+function isViewable(name) {
+  return ["pdf","png","jpg","jpeg","gif","webp","svg"].includes(name.split(".").pop().toLowerCase());
+}
+
+function isImage(name) {
+  return ["png","jpg","jpeg","gif","webp","svg"].includes(name.split(".").pop().toLowerCase());
+}
+
+function formatSize(bytes) {
+  if (!bytes) return "—";
+  if (bytes < 1024) return bytes + " B";
+  if (bytes < 1024*1024) return (bytes/1024).toFixed(1) + " KB";
+  return (bytes/(1024*1024)).toFixed(1) + " MB";
+}
+
+function esc(str) {
+  return String(str).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// ── Gate ──────────────────────────────────────────────────────────────────────
+document.getElementById("gateForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const pw = document.getElementById("pw").value;
+  const err = document.getElementById("err");
+  err.textContent = "";
+  if (!pw) return;
+
+  const h = await sha256(pw);
+  if (h === CFG.passwordHash) {
+    try { sessionStorage.setItem(CFG.sessionKey, "1"); } catch(e) {}
+    showExplorer();
+  } else {
+    err.textContent = "Incorrect password. Contact contact@apweb.tech for help.";
+    document.getElementById("pw").select();
+  }
+});
+
+try {
+  if (sessionStorage.getItem(CFG.sessionKey) === "1") showExplorer();
+} catch(e) {}
+
+// ── Explorer ──────────────────────────────────────────────────────────────────
+function showExplorer() {
+  document.getElementById("gateWrap").style.display = "none";
+  document.getElementById("viewer").classList.remove("active");
+  document.getElementById("viewer").style.display = "none";
+  document.getElementById("explorer").style.display = "block";
+  document.getElementById("explorer").classList.add("active");
+  document.getElementById("headerMeta").textContent = CFG.clientName;
+  loadFiles();
+}
+
+async function loadFiles() {
+  const inner = document.getElementById("expInner");
+  inner.innerHTML = `<div class="exp-loading"><div class="spinner"></div><span>Loading your files&hellip;</span></div>`;
+
+  try {
+    const res = await fetch(GITHUB_API, { headers: { "Accept": "application/vnd.github.v3+json" } });
+    if (!res.ok) throw new Error(`GitHub API ${res.status}`);
+    const items = await res.json();
+
+    const files = items.filter(f => f.type === "file" && f.name !== "index.html" && !f.name.startsWith("."));
+    files.sort((a,b) => a.name.localeCompare(b.name));
+
+    if (files.length === 0) {
+      inner.innerHTML = `<div class="file-table"><div class="empty-state"><div class="big">📂</div><strong>No files yet</strong><br>Files uploaded to this folder will appear here.</div></div>`;
+      return;
+    }
+
+    let rows = files.map(f => {
+      const viewable = isViewable(f.name);
+      const rawUrl   = f.download_url;
+      const viewBtn  = viewable
+        ? `<button class="btn-view" onclick="openViewer('${esc(f.name)}','${esc(rawUrl)}')">View</button>`
+        : "";
+      return `
+        <div class="file-row">
+          <div class="file-name">
+            <span class="file-icon">${fileIcon(f.name)}</span>
+            <div class="file-text">
+              <div class="fname">${esc(f.name)}</div>
+              <div class="fext">${fileLabel(f.name)}</div>
+            </div>
+          </div>
+          <div class="file-size h-size">${formatSize(f.size)}</div>
+          <div class="file-actions">${viewBtn}<a class="btn-dl" href="${esc(rawUrl)}" download="${esc(f.name)}">Download</a></div>
+        </div>`;
+    }).join("");
+
+    inner.innerHTML = `
+      <div class="file-table">
+        <div class="file-header"><div>Name</div><div class="h-size">Size</div><div></div></div>
+        ${rows}
+      </div>`;
+
+  } catch (err) {
+    inner.innerHTML = `
+      <div class="exp-error">
+        <strong>Couldn't load files</strong>
+        Could not reach the file list. Check your connection and try refreshing.
+        <br><br><button class="btn-view" onclick="loadFiles()" style="border:0;cursor:pointer;">Retry</button>
+      </div>`;
+    console.error(err);
+  }
+}
+
+function lockPortal() {
+  try { sessionStorage.removeItem(CFG.sessionKey); } catch(e) {}
+  document.getElementById("explorer").classList.remove("active");
+  document.getElementById("explorer").style.display = "none";
+  document.getElementById("gateWrap").style.display = "flex";
+  document.getElementById("pw").value = "";
+  document.getElementById("err").textContent = "";
+}
+
+// ── Viewer ────────────────────────────────────────────────────────────────────
+function openViewer(name, url) {
+  document.getElementById("explorer").style.display = "none";
+  document.getElementById("viewer").style.display = "block";
+  document.getElementById("viewer").classList.add("active");
+  document.getElementById("viewerName").textContent = name;
+  document.getElementById("viewerDl").href = url;
+  document.getElementById("viewerDl").download = name;
+  document.getElementById("viewerNew").href = url;
+
+  const wrap = document.getElementById("frameWrap");
+  if (isImage(name)) {
+    wrap.innerHTML = `<img class="inline-img" src="${esc(url)}" alt="${esc(name)}">`;
+  } else {
+    wrap.innerHTML = `
+      <object data="${esc(url)}#view=FitH" type="application/pdf" title="${esc(name)}">
+        <embed src="${esc(url)}#view=FitH" type="application/pdf">
+        <p style="color:#fff;text-align:center;padding:40px">Your browser can't show this inline. <a href="${esc(url)}" target="_blank" style="color:var(--teal)">Open in a new tab →</a></p>
+      </object>`;
+  }
+}
+
+function closeViewer() {
+  document.getElementById("viewer").classList.remove("active");
+  document.getElementById("viewer").style.display = "none";
+  document.getElementById("frameWrap").innerHTML = "";
+  showExplorer();
+}
+</script>
+</body>
+</html>
